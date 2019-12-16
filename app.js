@@ -1,119 +1,105 @@
+var width = 960,
+    height = 500,
+    margin = 40,
+    n = 30,
+    radius = width / 2 - (margin * 2),
+    needleRad = 20,
+    pi = Math.PI,
+    halfPi = pi / 2,
+    endAngle = pi / 2,
+    startAngle = -endAngle,
+    data = d3.range(startAngle, endAngle, pi / n),
+    _data = data.slice(0),
+    tt = 3000,
+    scale = d3.scaleLinear().range([startAngle, endAngle]),
+    colorScale = d3.scaleSequential(d3.interpolateRdYlGn).domain([data[0], data[data.length - 1]]),
+    svg = d3.select('svg').append('g').attr('transform', 'translate(' + width / 2 + ',' + (height - margin) + ')');
 
-//   <script src="https://d3js.org/d3.v4.min.js"></script>
- 
-var margin ={
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0
-  };
+_data.push(endAngle);
 
-//   text {
-//     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-//     font-size: 20px;
-//   }
+var arc = d3.arc()
+    .innerRadius(radius - (radius / 5))
+    .outerRadius(radius)
+    .startAngle(function (d) { return d; })
+    .endAngle(function (d, i) { return _data[i + 1]; });
 
-  //var degToRad  =  (deg) => {return deg * Math.PI / 180};
+var slice = svg.append('g').selectAll('path.slice').data(data);
 
-  function deg2rad(deg) {
-              return deg * Math.PI / 180;
-      }
-  
-  function define_EndPoint(t, percentage) {
-     return (t - (50/percentage )) * deg2rad(percentage*2.4); 
-  }
+slice
+    .enter()
+    .append('path')
+    .attr('class', 'slice')
+    .attr('d', arc)
+    .attr('fill', function (d) { return colorScale(d); });
 
-  var svg = d3.select("body").append("svg")
-    .attr("width", 960)
-    .attr("height", 500)
-    .append("g")
-    .attr("transform", "translate(480,250)");
+var needle = svg.append('g').append('path').attr('class', 'needle').attr('fill-opacity', .7).attr('stroke', 'black');
+var text = svg.append('g').append('text').attr('class', 'text').attr('text-anchor', 'middle').attr('dy', '-0.45em').classed('monospace', true);
 
-  var arc = d3.arc()
-    .innerRadius(180)
-    .outerRadius(205)
-    .startAngle(deg2rad(-120))
-    //.endAngle(function(t) { return (t-0.5) * deg2rad(240) ; });
-    //.endAngle(function (t) { return (t-0.5) * 4; });
-    .endAngle(function (t) { return define_EndPoint(t, 100) });
+function update(oldValue, newValue) {
+    needle
+        .datum({ oldValue: oldValue })
+        .transition().duration(tt)
+        .attrTween('d', lineTween(newValue))
+        .on('end', function () {
+            update(newValue, scale(Math.random()));
+        });
 
-  svg.append("path")
-    .attr("id", "path")
-      .attr("fill", "#d8b216")
-    .attr("d", arc);
+    text
+        .datum({ oldValue: oldValue })
+        .transition().duration(tt)
+        .attrTween('transform', transformTween(newValue))
+        .tween('text', textTween(newValue));
+}
 
-  svg.append("text")
-    .attr("x", 18)
-    .attr("dy", 18)
-    .append("textPath")
-      .attr("id", "txtpath")
-    .attr("class", "textpath")
-    .attr("xlink:href", "#path")
-    .text("100% curved textPath!");
+function textTween(newValue) {
+    return function (d) {
 
-//===================================    
-  var arc2 = d3.arc()
-    .innerRadius(150)
-    .outerRadius(175)
-    //.startAngle(-2)
-    .startAngle(deg2rad(-120))
-    //.endAngle(function(t) { return (t-0.5) * deg2rad(240) ; });
-    //.endAngle(function (t) { return (t-1) * 2; });
-    .endAngle(function (t) { return define_EndPoint(t, 75) });
-      //.endAngle(function (t) { return define_End(t, 20) });
+        var that = d3.select(this),
+            i = d3.interpolate(d.oldValue, newValue);
 
-  svg.append("path")
-    .attr("id", "path2")
-      .attr("fill", "#33c6c6")
-    .attr("d", arc2);
+        return function (t) {
+            that.text(d3.format('.1%')(scale.invert(i(t))));
+        };
+    };
+}
 
-  svg.append("text")
-    .attr("x", 18)
-    .attr("dy", 18)
-    .append("textPath")
-      .attr("id", "txtpath2")
-    .attr("class", "textpath")
-    .attr("xlink:href", "#path2")
-    .text("75% curved");
+function transformTween(newValue) {
+    return function (d) {
 
-//===================================
-  var arc3 = d3.arc()
-    .innerRadius(120)
-    .outerRadius(145)
-    .startAngle(deg2rad(-120))
-    .endAngle(function (t) { return define_EndPoint(t, 25) });
+        var interpolate = d3.interpolate(d.oldValue, newValue);
 
-  svg.append("path")
-    .attr("id", "path3")
-      .attr("fill", "#d55259")
-    .attr("d", arc3);
+        return function (t) {
+            var _in = interpolate(t) - halfPi,
+                centerX = (radius + 20) * Math.cos(_in),
+                centerY = (radius + 20) * Math.sin(_in);
+            return 'translate(' + centerX + ',' + centerY + ')';
+        };
+    };
+}
 
-  svg.append("text")
-    .attr("x", 18)
-    .attr("dy", 18)
-    .append("textPath")
-      .attr("id", "txtpath3")
-    .attr("class", "textpath")
-    .attr("xlink:href", "#path3")
-    .text("25% curved");
-  
-  var transition = svg.transition()
-    .duration(5000);
+function lineTween(newValue) {
+    return function (d) {
 
-  transition.selectAll("#path")
-    .attrTween("d", function () { return arc; });
+        var interpolate = d3.interpolate(d.oldValue, newValue);
 
-  transition.selectAll("#txtpath")
-    .attrTween("xlink:href", function () { return function () { return "#path"; }; });
-  
-  transition.selectAll("#path2")
-    .attrTween("d", function () { return arc2; });
+        return function (t) {
 
-  transition.selectAll("#txtpath2")
-    .attrTween("xlink:href", function () { return function () { return "#path2"; }; });    
+            var _in = interpolate(t) - halfPi,
+                _im = _in - halfPi,
+                _ip = _in + halfPi;
 
-  transition.selectAll("#path3")
-    .attrTween("d", function () { return arc3; });
+            var topX = radius * Math.cos(_in),
+                topY = radius * Math.sin(_in);
 
-  transition.selectAll("#txtpath3")
-    .attrTween("xlink:href", function () { return function () { return "#path3"; }; });  
+            var leftX = needleRad * Math.cos(_im),
+                leftY = needleRad * Math.sin(_im);
+
+            var rightX = needleRad * Math.cos(_ip),
+                rightY = needleRad * Math.sin(_ip);
+
+            return d3.line()([[topX, topY], [leftX, leftY], [rightX, rightY]]) + 'Z';
+        };
+    };
+}
+
+update(scale(0), scale(Math.random()));
