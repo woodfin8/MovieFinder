@@ -25,7 +25,7 @@ var data = [
    chart.title("Quadrant Chart: Quarters (Titles)");
   
   // set the container id
-  chart.container("container");
+  chart.container("plot");
   
   // initiate drawing the chart
   chart.draw();
