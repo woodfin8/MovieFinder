@@ -6,11 +6,10 @@ var chart = new Chart(ctx, {
         labels: ["Runtime(minutes)", "Longest Runtime"],
         datasets: [{
             label: "Gauge",
-            data: [0, 360],
+            data: [40, 360],
             backgroundColor: [
                 "rgb(255, 99, 132)",
-                "rgb(54, 162, 235)",
-                "rgb(255, 205, 86)"
+                "rgb(54, 162, 235)"
             ]
         }]
     },
