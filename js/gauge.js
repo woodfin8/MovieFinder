@@ -3,7 +3,7 @@ var ctx = document.getElementsByClassName("chartjs-gauge");
 var chart = new Chart(ctx, {
     type: "doughnut",
     data: {
-        labels: ["Runtime(minutes)", "Longest Runtime"],
+        labels: ["Runtime (mins)", "Longest Runtime (mins)"],
         datasets: [{
             label: "Gauge",
             data: [40, 360],
@@ -50,7 +50,7 @@ var chart = new Chart(ctx, {
                     if (i == len) {
                         return null;
                     }
-                    return value + ' mph';
+                    return value + ' minutes';
                 }
             }
         },
