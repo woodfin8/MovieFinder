@@ -11,7 +11,9 @@
     <!-- Boostrap and Bootswatch Spacelab Customization -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/lux/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-oOs/gFavzADqv3i5nCM+9CzXe3e5vXLXZ5LZ7PplpsWpTCufB7kqkTlC9FtZ5nJo" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <!-- CSS Style Sheet -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet/css"> -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </Head>
 
 <Body>
@@ -25,39 +27,36 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Genre
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" id="action" href="#">Action</a>
-                            <a class="dropdown-item" id="thriller" href="#">Thriller</a>
-                            <a class="dropdown-item" id="sci-fi" href="#">Sci-Fi</a>
-                            <a class="dropdown-item" id="romance" href="#">Romance</a>
-                            <a class="dropdown-item" id="horror" href="#">Horror</a>
-                            <a class="dropdown-item" id="comedy" href="#">Comedy</a>
-                            <a class="dropdown-item" id="drama" href="#">Drama</a>
-                            <a class="dropdown-item" id="mystery" href="#">Mystery</a>
-                            <a class="dropdown-item" id="animation" href="#">Animation</a>
-                            <a class="dropdown-item" id="adeventure" href="#">Adeventure</a>
-                            <a class="dropdown-item" id="fantasy" href="#">Fantasy</a>
-                            <a class="dropdown-item" id="war" href="#">War</a>
-                            <a class="dropdown-item" id="biography" href="#">Biography</a>
-                            <a class="dropdown-item" id="western" href="#">Western</a>
-                            <a class="dropdown-item" id="film-noir" href="#">Film-Noir</a>
+                            <a class="dropdown-item" id="Action" href="#">Action</a>
+                            <a class="dropdown-item" id="Thriller" href="#">Thriller</a>
+                            <a class="dropdown-item" id="Sci-Fi" href="#">Sci-Fi</a>
+                            <a class="dropdown-item" id="Romance" href="#">Romance</a>
+                            <a class="dropdown-item" id="Horror" href="#">Horror</a>
+                            <a class="dropdown-item" id="Comedy" href="#">Comedy</a>
+                            <a class="dropdown-item" id="Drama" href="#">Drama</a>
+                            <a class="dropdown-item" id="Mystery" href="#">Mystery</a>
+                            <a class="dropdown-item" id="Animation" href="#">Animation</a>
+                            <a class="dropdown-item" id="Adeventure" href="#">Adeventure</a>
+                            <a class="dropdown-item" id="Fantasy" href="#">Fantasy</a>
+                            <a class="dropdown-item" id="War" href="#">War</a>
+                            <a class="dropdown-item" id="Biography" href="#">Biography</a>
+                            <a class="dropdown-item" id="Western" href="#">Western</a>
+                            <a class="dropdown-item" id="Film-Noir" href="#">Film-Noir</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" id="other" href="#">Other</a>
+                            <a class="dropdown-item" id="Other" href="#">Other</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">X-Axis</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            X-Axis
+                        </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" id="xIMDB" href="#">IMDB</a>
                             <a class="dropdown-item" id="xRottenTomatoes" href="#">Rotten Tomatoes</a>
@@ -67,7 +66,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Y-Axis</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Y-Axis
+                        </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" id="yIMDB" href="#">IMDB</a>
                             <a class="dropdown-item" id="yRottenTomatoes" href="#">Rotten Tomatoes</a>
@@ -78,7 +80,8 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" id="search" type="search" placeholder="Movie Title" aria-label="Search">
+                    <input class="form-control mr-sm-2" id="search" type="search" placeholder="Movie Title"
+                        aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
@@ -91,12 +94,14 @@
                 <Div class="col-md-12">
                     <Div class="Box">
                         <Div class="header">
-                            <H1 class="title">Four Quadrant Chart</H1>
-                                <P class="category" id="quadrant">Compare ten movies according to reviews vs. box office</P>
+                            <H1 class="title" style="text-align:center">Four Quadrant Chart</H1>
+                            <span style=“line-height:16px”>
+                            <P class="category" style="text-align:center">Compare ten movies according to reviews
+                                ratings and box office numbers</P>
                         </Div>
                         <Div class="content">
                             <Div class="row">
-                                <Div class="Col-xs-12 col-sm-12 col-md-6">
+                                <Div class="col-xs-12 col-sm-12 col-md-6">
                                     <H2>vs. Max Temperature</H2>
                                     <A href="Fig1-latVStemp.html"></A>
                                     <Img class="img-fluid" src="Resources/Fig1.png"
@@ -132,6 +137,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/quad.js"></script>
 </Body>
 
 </HTML>
