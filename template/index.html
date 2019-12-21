@@ -8,12 +8,19 @@
     <Meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <Meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <Meta name="viewport" content="width=device-width">
-    <!-- Boostrap and Bootswatch Spacelab Customization -->
+    <!-- Bootswatch Lux & Bootstrap Customization -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/lux/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-oOs/gFavzADqv3i5nCM+9CzXe3e5vXLXZ5LZ7PplpsWpTCufB7kqkTlC9FtZ5nJo" crossorigin="anonymous">
-    <!-- CSS Style Sheet -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet/css"> -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"
+        defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
+        defer></script>
+    <script type="text/javascript" src="js/quad.js" defer></script>
 </Head>
 
 <Body>
@@ -52,12 +59,12 @@
                             <a class="dropdown-item" id="Other" href="#">Other</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             X-Axis
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                             <a class="dropdown-item" id="xIMDB" href="#">IMDB</a>
                             <a class="dropdown-item" id="xRottenTomatoes" href="#">Rotten Tomatoes</a>
                             <a class="dropdown-item" id="xMetacritic" href="#">Metacritic</a>
@@ -65,12 +72,12 @@
                             <a class="dropdown-item" id="xBoxOffice" href="#">Box Office</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Y-Axis
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
                             <a class="dropdown-item" id="yIMDB" href="#">IMDB</a>
                             <a class="dropdown-item" id="yRottenTomatoes" href="#">Rotten Tomatoes</a>
                             <a class="dropdown-item" id="yMetacritic" href="#">Metacritic</a>
@@ -94,10 +101,9 @@
                 <Div class="col-md-12">
                     <Div class="Box">
                         <Div class="header">
-                            <H1 class="title" style="text-align:center">Four Quadrant Chart</H1>
-                            <span style=“line-height:16px”>
-                            <P class="category" style="text-align:center">Compare ten movies according to reviews
-                                ratings and box office numbers</P>
+                            <H1 class="title" style="text-align:center" >Four Quadrant Chart</H1>
+                                <P class="category" style="text-align:center" style="line-height: 10px">Compare ten movies according to reviews
+                                    ratings and box office numbers</P>
                         </Div>
                         <Div class="content">
                             <Div class="row">
@@ -128,16 +134,6 @@
             </Div>
         </Div>
     </Div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/quad.js"></script>
 </Body>
 
 </HTML>
