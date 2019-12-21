@@ -18,10 +18,11 @@ var chart = new Chart(ctx, {
         legend: {
             position: 'top',
         },
-        title: {
-            display: true,
-            text: 'IMDB Votes'
-        },
+        // title: {
+        //     display: true,
+        //     text: 'IMDB Votes',
+        //     fontSize: 40 
+        // },
 
         circumference: Math.PI,
         rotation: Math.PI,
@@ -55,7 +56,7 @@ var chart = new Chart(ctx, {
             }
         },
         legend: {
-            display: true
+            display: false
         },
         tooltips: {
             enabled: true

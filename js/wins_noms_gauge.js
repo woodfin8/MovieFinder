@@ -6,7 +6,7 @@ var chart = new Chart(ctx, {
         labels: ["Wins", "Nominations"],
         datasets: [{
             label: "Gauge",
-            data: [500, 4000],
+            data: [500, 360],
             backgroundColor: [
                 "rgb(255, 99, 132)",
                 "rgb(54, 162, 235)"
@@ -18,10 +18,11 @@ var chart = new Chart(ctx, {
         legend: {
             position: 'top',
         },
-        title: {
-            display: true,
-            text: 'Wins vs. Nominations'
-        },
+        // title: {
+        //     display: true,
+        //     text: 'Wins vs. Nominations',
+        //     fontSize: 40 
+        // },
 
         circumference: Math.PI,
         rotation: Math.PI,
@@ -50,12 +51,12 @@ var chart = new Chart(ctx, {
                     if (i == len) {
                         return null;
                     }
-                    return value;
+                    return 'Wins:' + value;
                 }
             }
         },
         legend: {
-            display: true
+            display: false
         },
         tooltips: {
             enabled: true
