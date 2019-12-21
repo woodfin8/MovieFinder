@@ -6,7 +6,6 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Development Process](#development-process)
-* [Contact](#contact)
 
 ## General info
 
@@ -27,9 +26,6 @@ The purpose of this project is to provide users with an opportunity to explore m
 * Jupyter notebook - version 4.1
 * Pandas - version 0.23.4
 * Numpy - version 1.15.4
-* Spacy - version 2.1.7
-* Tweepy - version 3.8.0
-
 
 ### Database
 
