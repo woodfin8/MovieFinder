@@ -1,6 +1,10 @@
 # MovieFinder
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e1de41a8ef59dbd76bc4971fa1262509dbe6698
 ## We'll try to follow this general directory structure.  We can change if need be; for example if we more auxiliary resources than just images.
 ## Table of contents
 
@@ -58,7 +62,11 @@ The purpose of this project is to provide users with an opportunity to explore m
 * [Code Pen](https://codepen.io/patxipierce/pen/oyeNMj) Gauge code
 * [Any Chart](https://www.anychart.com/) quadrant chart documentation
 * [Chart.js](https://www.chartjs.org/) Chart js usage and documentation
+<<<<<<< HEAD
 =======
 ## We'll try to follow this general directory structure.  We can change if need be.
 ## For now, put python applications in the project (MovieFinder) main folder instead of a subfolder (such as data)
 >>>>>>> master
+=======
+
+>>>>>>> 8e1de41a8ef59dbd76bc4971fa1262509dbe6698
