@@ -1,12 +1,12 @@
-// Create chart
-var ctx = document.getElementsByClassName("chartjs-gauge");
+// Create chart Votes
+var ctx = document.getElementsByClassName("chartjs-gauge-2");
 var chart = new Chart(ctx, {
     type: "doughnut",
     data: {
-        labels: ["Runtime (mins)", "Longest Runtime (mins)"],
+        labels: ["IMDB Votes", "Greatest # of Votes"],
         datasets: [{
             label: "Gauge",
-            data: [40, 360],
+            data: [500, 4000],
             backgroundColor: [
                 "rgb(255, 99, 132)",
                 "rgb(54, 162, 235)"
@@ -20,7 +20,7 @@ var chart = new Chart(ctx, {
         },
         title: {
             display: true,
-            text: 'Movie Runtime'
+            text: 'IMDB Votes'
         },
 
         circumference: Math.PI,
@@ -50,7 +50,7 @@ var chart = new Chart(ctx, {
                     if (i == len) {
                         return null;
                     }
-                    return value + ' minutes';
+                    return 'votes:' + value;
                 }
             }
         },
@@ -62,47 +62,3 @@ var chart = new Chart(ctx, {
         }
     }
 });
-
-
-// // // DEMO Code: not relevant to example
-// function change_gauge(chart, label, data){
-//   chart.data.datasets.forEach((dataset) => {
-//     if(dataset.label == label){
-//       dataset.data = data;
-//     }  
-//   });
-//   chart.update();
-// }
-
-// var accelerating = false;
-// function accelerate(){
-//   accelerating = false;
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[20,140])
-//   }, 1000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[60,140])
-//   }, 2000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[100,100])
-//   }, 3000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[180,20])
-//   }, 4000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[200,0])
-//   }, 5000);
-// }
-
-// // Start sequence
-// accelerate();
-// window.setInterval(function(){
-//   if(!accelerating){
-//     acelerating = true;
-//     accelerate();
-//   }
-// }, 6000);
