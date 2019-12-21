@@ -25,7 +25,7 @@
 
 <Body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
             <a class="navbar-brand" href="#">What's on TV?</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,7 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-md-0">
                     <input class="form-control mr-sm-2" id="search" type="search" placeholder="Movie Title"
                         aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -101,33 +101,44 @@
                 <Div class="col-md-12">
                     <Div class="Box">
                         <Div class="header">
-                            <H1 class="title" style="text-align:center" >Four Quadrant Chart</H1>
-                                <P class="category" style="text-align:center" style="line-height: 10px">Compare ten movies according to reviews
-                                    ratings and box office numbers</P>
+                            <H1 class="title" style="text-align:center"><br>Our Project</H1>
+                            <P class="category" style="text-align:center">Project Description</P>
                         </Div>
-                        <Div class="content">
+                        <Div class="content" style="text-align:center">
                             <Div class="row">
-                                <Div class="col-xs-12 col-sm-12 col-md-6">
-                                    <H2>vs. Max Temperature</H2>
-                                    <A href="Fig1-latVStemp.html"></A>
-                                    <Img class="img-fluid" src="Resources/Fig1.png"
-                                        alt="City Latitude vs. Max Temperature" height="500" width="500">
-                                    <H3>vs. Humidity</H3>
-                                    <A href="Fig2-latVShum.html"></A>
-                                    <Img class="img-fluid" src="Resources/Fig2.png" alt="City Latitude vs. Humidity"
-                                        height="500" width="500">
+                                <Div class="col-xs-12 col-md-12 col-lg-9 offset-lg-3">
+                                    <H2>Four Quadrant Chart</H2>
+                                    <P class="category">Compare ten movies according to
+                                        reviews ratings and box office numbers</P>
+                                    <div id="quadrant">
+                                        <!-- PUT QUADRANT GRAPH HERE -->
+                                    </div>
                                 </Div>
-                                <Div class="col-xs-12 col-sm-12 col-md-6">
-                                    <H2>vs. Cloudiness</H2>
-                                    <A href="Fig3-latVScloud.html"></A>
-                                    <Img class="img-fluid" src="Resources/Fig3.png" alt="City Latitude vs Cloudiness"
-                                        height="500" width="500">
-                                    <H3>vs. Wind Speed</H3>
-                                    <A href="Fig3-latVScloud.html"></A>
-                                    <Img class="img-fluid" src="Resources/Fig4.png" alt="City Latitude vs. Wind Speed"
-                                        height="500" width="500">
+                                <Div class="col-xs col-md col-lg-3">
+                                    <H2>Gauge 1</H2>
+                                    <P class="category">Compares X and Y</P>
+                                    <div id="gauge1">
+                                        <!-- PUT GAUGE 1 HERE-->
+                                    </div>
+                                    <H2><br>Gauge 2</H2>
+                                    <P class="category">Compares X and Y</P>
+                                    <div id="gauge2">
+                                        <!-- PUT GAUGE 2 HERE -->
+                                    </div>
+                                    <H2><br>Gauge 3</H2>
+                                    <P class="category">Compares X and Y</P>
+                                    <div id="gauge3">
+                                        <!-- PUT GAUGE 3 HERE -->
+                                    </div>
                                 </Div>
                             </Div>
+                            <Div class="row">
+                                <Div class="col-xs-6 col-lg-4" style="text-align:center">
+                                    <div id="poster">
+                                        <!-- PUT MOVIE POSTER HERE -->
+                                    </div>                                
+                                </Div>
+                            </Div></div>>
                         </Div>
                     </Div>
                 </Div>
