@@ -1,0 +1,10 @@
+body, html {
+  background-color: rgb(230, 212, 212);
+}
+
+.chartjs-wrapper {
+  margin: 0 auto;
+  width: 32vw;
+  height: auto;
+  padding: 20px;
+}
