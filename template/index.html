@@ -20,14 +20,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
         defer></script>
-    <script src="https://d3js.org/d3.v5.min.js" defer></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0" defer></script>
-    <script src="../js/runtime_gauge.js" defer></script>
-    <script src="../js/wins_noms_gauge.js" defer></script>
-    <script src="../js/voteCount_gauge.js" defer></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js" defer></script>
+    <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0" defer></script>
+    <script type="text/javascript" src="../js/runtime_gauge.js" defer></script>
+    <script type="text/javascript" src="../js/wins_noms_gauge.js" defer></script>
+    <script type="text/javascript" src="../js/voteCount_gauge.js" defer></script>
     <script type="text/javascript" src="js/quad.js" defer></script>
 </Head>
 
@@ -125,12 +125,14 @@
                                 <Div class="col-xs-12 col-lg-3">
                                     <div class="chartjs-wrapper">
                                         <H2>Gauge 1</H2>
-                                        <P class="category">Runtime (min) for the Selected Movie versus the Movie on the Chart with the Longest Runtime</P>
+                                        <P class="category">Runtime (min) for the Selected Movie versus the Movie on the
+                                            Chart with the Longest Runtime</P>
                                         <canvas class="chartjs-gauge-1">
                                             <!-- GAUGE 1 -->
                                         </canvas>
                                         <H2><br>Gauge 2</H2>
-                                        <P class="category">Number of IMDB Votes for Selected Movie versus Movie on the Chart with the most Votes</P>
+                                        <P class="category">Number of IMDB Votes for Selected Movie versus Movie on the
+                                            Chart with the most Votes</P>
                                         <canvas class="chartjs-gauge-2">
                                             <!--  GAUGE 2 -->
                                         </canvas>
@@ -143,17 +145,20 @@
                                 </Div>
                             </Div>
                             <Div class="row">
-                                <D class="col-xs-6 col-lg-4" style="text-align:center">
-                                    <a id="poster">
+                                <Div class="col-xs-6 offset-xs-left col-lg-4" style="text-align:center">
+                                    <img id="poster"
+                                        class="img-fluid"
+                                        src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg"
+                                        alt="Movie Poster">
                                         <!-- PUT MOVIE POSTER HERE.  MAY NEED TO ADD 'HREF' MANUALLY -->
-                                    </a>
+                                </img>
+                                </Div>
                             </Div>
                         </Div>
                     </Div>
                 </Div>
             </Div>
         </Div>
-    </Div>
 </Body>
 
 </HTML>
