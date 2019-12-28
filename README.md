@@ -2,12 +2,15 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 8e1de41a8ef59dbd76bc4971fa1262509dbe6698
 ## We'll try to follow this general directory structure.  We can change if need be; for example if we more auxiliary resources than just images.
 ## Table of contents
 
+=======
+>>>>>>> master
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Development Process](#development-process)
