@@ -2,7 +2,7 @@
 
 //<!--script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-core.min.js"></script-->
 //<script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-scatter.min.js"></script-->
-<script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js" defer></script>
 
 
 // create data
