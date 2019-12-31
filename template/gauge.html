@@ -3,23 +3,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Movie Finder</title>
-	<link rel="stylesheet" href="style.css">
+	<!-- These scripts are what Melissa needs to import from chartjs so activate the library -->
+	<!-- If you add 'defer' to the end of the script you can put it in the head (top) of an html file instead of the bottom of the body part -->
+	<!-- Since you are using anychart and she is using chartjs, the import files will be different.  Check their documentation -->
+	<!-- note that these are weblinks with 'src' -->
+	<script src="https://d3js.org/d3.v5.min.js" defer></script>
+	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0" defer></script>
+	
+	<!-- These scripts connect this test gauge.html to her js files. -->
+	<!-- Note that these path to local files.  Make sure your quad.js file is connected to your html file -->
+	<!-- All the JS files you've edited so be in the JS Folder, and all HTML files you edit should be in the template folder -->
+	<!-- So your quad.js script should read <script src="../js/quad.js"></script> -->
+	<script src="../js/runtime_gauge.js" defer></script> 
+	<script src="../js/wins_noms_gauge.js" defer></script> 
+	<script src="../js/voteCount_gauge.js" defer></script> 
 </head>
 
 <body>
+	<!-- These classes (div and canvas) show where in the HTML the gauges should show up and how to connect them -->
+	<!-- You usually need a specific class or id name...so you need to find out what these are in anychart -->
     <div class="chartjs-wrapper">
-		<canvas class="chartjs-gauge-1"></canvas>
-		<canvas class="chartjs-gauge-2"></canvas>
-		<canvas class="chartjs-gauge-3"></canvas>
+		<canvas class="chartjs-gauge-1" defer></canvas>
+		<canvas class="chartjs-gauge-2" defer></canvas>
+		<canvas class="chartjs-gauge-3" defer></canvas>
     </div>
-	<script src="https://d3js.org/d3.v5.min.js"></script>
-	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
-	<script src="../js/runtime_gauge.js"></script> 
-	<script src="../js/wins_noms_gauge.js"></script> 
-	<script src="../js/voteCount_gauge.js"></script> 
 </body>
 
 
