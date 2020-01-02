@@ -27,17 +27,18 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0" defer></script>
-    
+
     <!-- JQuery CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous" defer></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
+        defer></script>
+
     <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js" defer></script>
-    
+
     <!-- Paths to Relevant JavaScript Files -->
     <script type="text/javascript" src="../js/runtime_gauge.js" defer></script>
     <script type="text/javascript" src="../js/wins_noms_gauge.js" defer></script>
     <script type="text/javascript" src="../js/voteCount_gauge.js" defer></script>
-    <!-- <script type="text/javascript" src="../js/quad.js" defer></script> -->
+    <script type="text/javascript" src="../js/quad.js" defer></script>
     <script type="text/javascript" src="../js/movieDescription.js" defer></script>
 </Head>
 
@@ -117,10 +118,11 @@
                         </Div>
                         <Div class="content" style="text-align:center">
                             <Div class="row">
-                                <Div class="col-xs-12 col-lg-9 offset-lg-3">
-                                    <H2><br>Four Quadrant Chart</H2>
+                                <Div class="col-xs-12 col-lg-8">
+                                    <H2><br>Quadrant Chart</H2>
                                     <P class="category">See How the Numbers Stack Up on the Board</P>
-                                    <!-- PUT QUADRANT GRAPH HERE -->
+                                    <div id="Quadrant" style="width: 90%; height: 90%;"></div>
+                                    <!-- QUADRANT CHART -->
                                 </Div>
                                 <Div class="col-xs-12 col-lg-3">
                                     <div class="chartjs-wrapper">
@@ -144,7 +146,7 @@
                                     </div>
                                 </Div>
                             </Div>
-                            <Div class="row">
+                            <Div class="row"></Div>
                                 <Div class="col-xs"><br><br>
                                     <img id="poster" class="rounded" style="width: 18rem"
                                         src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg"
