@@ -1,7 +1,8 @@
-let json = $.getJSON("../data/dummydata.json", d => d);
+function jsonReader() {
+    d3.json("../data/dummydata.json").then(d => {
+        console.log(d[0])
+        return d[0]
+    });
+};
 
-console.log(json);
-
-let respJson = json.responseJSON;
-
-console.log(respJson);
+jsonReader();
