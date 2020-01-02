@@ -4,10 +4,11 @@
 <Head>
     <Meta chartset="UTF-8">
     <Meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <Title>What's on TV?</Title>
+    <Title>Movie Finder</Title>
     <Meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <Meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <Meta name="viewport" content="width=device-width">
+
     <!-- Bootswatch Lux & Bootstrap Customization -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/lux/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-oOs/gFavzADqv3i5nCM+9CzXe3e5vXLXZ5LZ7PplpsWpTCufB7kqkTlC9FtZ5nJo" crossorigin="anonymous">
@@ -20,21 +21,31 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
         defer></script>
+
     <script type="text/javascript" src="https://d3js.org/d3.v5.min.js" defer></script>
     <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0" defer></script>
+
+    <!-- JQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"
+        defer></script>
+
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js" defer></script>
+
+    <!-- Paths to Relevant JavaScript Files -->
     <script type="text/javascript" src="../js/runtime_gauge.js" defer></script>
     <script type="text/javascript" src="../js/wins_noms_gauge.js" defer></script>
     <script type="text/javascript" src="../js/voteCount_gauge.js" defer></script>
-    <script type="text/javascript" src="js/quad.js" defer></script>
+    <script type="text/javascript" src="../js/quad.js" defer></script>
+    <script type="text/javascript" src="../js/movieDescription.js" defer></script>
 </Head>
 
 <Body>
     <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a class="navbar-brand" href="#">What's on TV?</a>
+            <a class="navbar-brand" href="#">Movie Finder</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,62 +53,53 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Genre
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" id="Action" href="#">Action</a>
-                            <a class="dropdown-item" id="Thriller" href="#">Thriller</a>
-                            <a class="dropdown-item" id="Sci-Fi" href="#">Sci-Fi</a>
-                            <a class="dropdown-item" id="Romance" href="#">Romance</a>
-                            <a class="dropdown-item" id="Horror" href="#">Horror</a>
-                            <a class="dropdown-item" id="Comedy" href="#">Comedy</a>
-                            <a class="dropdown-item" id="Drama" href="#">Drama</a>
-                            <a class="dropdown-item" id="Mystery" href="#">Mystery</a>
-                            <a class="dropdown-item" id="Animation" href="#">Animation</a>
-                            <a class="dropdown-item" id="Adeventure" href="#">Adeventure</a>
-                            <a class="dropdown-item" id="Fantasy" href="#">Fantasy</a>
-                            <a class="dropdown-item" id="War" href="#">War</a>
-                            <a class="dropdown-item" id="Biography" href="#">Biography</a>
-                            <a class="dropdown-item" id="Western" href="#">Western</a>
-                            <a class="dropdown-item" id="Film-Noir" href="#">Film-Noir</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" id="Other" href="#">Other</a>
-                        </div>
+                    <li>
+                        <select class="custom-select">
+                            <option selected>Genre</option>
+                            <!-- value="Action" is just an example.  It is unnecessary for this dropdown -->
+                            <option value="Action">Action</option>
+                            <option>Thriller</option>
+                            <option>Sci-Fi</option>
+                            <option>Romance</option>
+                            <option>Horror</option>
+                            <option>Comedy</option>
+                            <option>Drama</option>
+                            <option>Mystery</option>
+                            <option>Animation</option>
+                            <option>Adeventure</option>
+                            <option>Fantasy</option>
+                            <option>War</option>
+                            <option>Biography</option>
+                            <option>Western</option>
+                            <option>Film-Noir</option>
+                        </select>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            X-Axis
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <a class="dropdown-item" id="xIMDB" href="#">IMDB</a>
-                            <a class="dropdown-item" id="xRottenTomatoes" href="#">Rotten Tomatoes</a>
-                            <a class="dropdown-item" id="xMetacritic" href="#">Metacritic</a>
-                            <a class="dropdown-item" id="xMetascore" href="#">Metascore</a>
-                            <a class="dropdown-item" id="xBoxOffice" href="#">Box Office</a>
-                        </div>
+                    <li>
+                        <select class="custom-select">
+                            <option selected>X-Axis</option>
+                            <option>IMDB</option>
+                            <option>Rotten Tomatoes</option>
+                            <option>Metacritic</option>
+                            <option>Metascore</option>
+                            <option>Box Office</option>
+                        </select>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Y-Axis
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" id="yIMDB" href="#">IMDB</a>
-                            <a class="dropdown-item" id="yRottenTomatoes" href="#">Rotten Tomatoes</a>
-                            <a class="dropdown-item" id="yMetacritic" href="#">Metacritic</a>
-                            <a class="dropdown-item" id="yMetascore" href="#">Metascore</a>
-                            <a class="dropdown-item" id="yBoxOffice" href="#">Box Office</a>
-                        </div>
+                    <li>
+                        <select class="custom-select">
+                            <option selected>Y-Axis</option>
+                            <option>IMDB</option>
+                            <option>Rotten Tomatoes</option>
+                            <option>Metacritic</option>
+                            <option>Metascore</option>
+                            <option>Box Office</option>
+                        </select>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-md-0">
-                    <input class="form-control mr-sm-2" id="search" type="search" placeholder="Movie Title"
-                        aria-label="Search">
+                    <!-- <input class="form-control mr-sm-2" id="search" type="search" placeholder="Movie Title"
+                        aria-label="Search"> -->
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <!-- Code eventlisterners for genre, x-axis, and y-axis search menus here -->
                 </form>
             </div>
         </nav>
@@ -109,18 +111,18 @@
                 <Div class="col-md-12">
                     <Div class="Box">
                         <Div class="header">
-                            <H1 class="title" style="text-align:center"><br>Our Project</H1>
-                            <P class="category" style="text-align:center">Project Description</P>
+                            <H1 class="title" style="text-align:center"><br>What's on TV?</H1>
+                            <P class="category" style="text-align:center">Compare 10 Movies According to Genre and Rank
+                                Them By Various Ratings and Box Office Numbers.
+                                <br>Click On the Dots to Select Each Individual Movie!</P>
                         </Div>
                         <Div class="content" style="text-align:center">
                             <Div class="row">
-                                <Div class="col-xs-12 col-lg-9 offset-lg-3">
-                                    <H2>Four Quadrant Chart</H2>
-                                    <P class="category">Compare ten movies according to
-                                        reviews ratings and box office numbers</P>
-                                    <div id="quadrant">
-                                        <!-- PUT QUADRANT GRAPH HERE -->
-                                    </div>
+                                <Div class="col-xs-12 col-lg-8">
+                                    <H2><br>Quadrant Chart</H2>
+                                    <P class="category">See How the Numbers Stack Up on the Board</P>
+                                    <div id="Quadrant" style="width: 90%; height: 90%;"></div>
+                                    <!-- QUADRANT CHART -->
                                 </Div>
                                 <Div class="col-xs-12 col-lg-3">
                                     <div class="chartjs-wrapper">
@@ -144,15 +146,15 @@
                                     </div>
                                 </Div>
                             </Div>
-                            <Div class="row">
-                                <Div class="col-xs-6 offset-xs-left col-lg-4" style="text-align:center">
-                                    <img id="poster"
-                                        class="img-fluid"
+                            <Div class="row"></Div>
+                                <Div class="col-xs"><br><br>
+                                    <img id="poster" class="rounded" style="width: 18rem"
                                         src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg"
-                                        alt="Movie Poster">
-                                        <!-- PUT MOVIE POSTER HERE.  MAY NEED TO ADD 'HREF' MANUALLY -->
-                                </img>
+                                        alt="No Movie Poster Avaliable">
+                                    <!-- PUT MOVIE POSTER in src -->
+                                    </img>
                                 </Div>
+                                <H1 class="col-xs offset-xs-3" id="Title">Blade Runner 2049</H1>
                             </Div>
                         </Div>
                     </Div>
