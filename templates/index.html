@@ -56,7 +56,6 @@
                     <li>
                         <select class="custom-select" onchange="optionChanged(this.value)">
                             <option selected>Genre</option>
-                            <!-- value="Action" is just an example.  It is unnecessary for this dropdown -->
                             <option value="Action">Action</option>
                             <option value="Adventure">Adventure</option>
                             <option value="Animation">Animation</option>
@@ -80,21 +79,19 @@
                     <li>
                         <select class="custom-select">
                             <option selected>X-Axis</option>
-                            <option>IMDB</option>
-                            <option>Rotten Tomatoes</option>
+                            <option value="IMDB">IMDB</option>
+                            <option value="Rotten_Tomatoes">Rotten Tomatoes</option>
                             <option>Metacritic</option>
-                            <option>Metascore</option>
-                            <option>Box Office</option>
+                            <option value="imdbVotes">IMDB Votes</option>
                         </select>
                     </li>
                     <li>
                         <select class="custom-select">
                             <option selected>Y-Axis</option>
-                            <option>IMDB</option>
-                            <option>Rotten Tomatoes</option>
+                            <option value="IMDB">IMDB</option>
+                            <option value="Rotten_Tomatoes">Rotten Tomatoes</option>
                             <option>Metacritic</option>
-                            <option>Metascore</option>
-                            <option>Box Office</option>
+                            <option values="imdbVotes">IMDB Votes</option>
                         </select>
                     </li>
                 </ul>
@@ -149,21 +146,22 @@
                                     </div>
                                 </Div>
                             </Div>
-                            <Div class="row"></Div>
-                                <Div class="col-xs"><br><br>
-                                    <img id="poster" class="rounded" style="width: 18rem"
-                                        src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg"
-                                        alt="No Movie Poster Avaliable">
+                            <Div class="container-fluid">
+                                <Div class="row img-rounded">
+                                    <!-- <img id="poster" class="rounded" style="width: 18rem"
+                                            alt="No Movie Poster Avaliable"> -->
+                                    <!-- src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg" -->
                                     <!-- PUT MOVIE POSTER in src -->
-                                    </img>
+                                    <!-- </img> -->
                                 </Div>
-                                <H1 class="col-xs offset-xs-3" id="Title">Blade Runner 2049</H1>
                             </Div>
+                            <H1 class="col-xs offset-xs-3" id="Title">Blade Runner 2049</H1>
                         </Div>
                     </Div>
                 </Div>
             </Div>
         </Div>
+    </Div>
 </Body>
 
 </HTML>
