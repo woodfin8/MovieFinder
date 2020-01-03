@@ -22,10 +22,11 @@ function descriptionBuilder() {
                 .data(data)
                 .enter()
                 .append("div")
-                .classed("col-md-4 thumbnail", true)
-                .html(`<img src="${data.Poster}"
+                .classed("col-md-4", true)
+                .html(data => `<img src=${data.Poster}
                     alt="No Movie Poster Avaliable"
-                    style="width: 18rem">`
+                    style="width: 18rem">
+                    </img>`
                 );
         });
 };
