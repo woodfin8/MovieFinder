@@ -75,26 +75,18 @@
                     <li>
                         <select class="custom-select ml-1">
                             <option selected>X-Axis: Rotten Tomatoes</option>
-                            <option value="IMDB">IMDB</option>
-                            <option value="Rotten_Tomatoes">Rotten Tomatoes</option>
-                            <option>Metacritic</option>
-                            <option value="imdbVotes">IMDB Votes</option>
                         </select>
                     </li>
                     <li>
                         <select class="custom-select ml-2">
                             <option selected>Y-Axis: IMDB</option>
-                            <option value="IMDB">IMDB</option>
-                            <option value="Rotten_Tomatoes">Rotten Tomatoes</option>
-                            <option>Metacritic</option>
-                            <option values="imdbVotes">IMDB Votes</option>
                         </select>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-md-0">
                     <!-- <input class="form-control mr-sm-2" id="search" type="search" placeholder="Movie Title"
                         aria-label="Search"> -->
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Home</button>
                     <!-- Code eventlisterners for genre, x-axis, and y-axis search menus here -->
                 </form>
             </div>
@@ -107,35 +99,32 @@
                 <Div class="col-md-12">
                     <Div class="Box">
                         <Div class="header">
-                            <H1 class="title" style="text-align:center"><br>What to Watch Tonight</H1>
-                            <P class="category" style="text-align:center">Compare Movies by Genre, Get Rankings, Runtime,
-                                Awards and Other Info
-                                <br>Click On the Dots to Select Each Individual Movie!</P>
                         </Div>
                         <Div class="content" style="text-align:center">
                             <Div class="row">
                                 <Div class="col-xs-12 col-lg-8">
-                                    <H2><br>Quadrant Chart</H2>
-                                    <P class="category">See How the Numbers Stack Up on the Board According to Genre</P>
+                                    <H2><br>What to Watch Tonight</H2>
+                                    <P class="category">Movies Ranked by Critics and Users.
+                                        Click Data Points for More Info.
+                                    </P>
+
                                     <div id="Quadrant" style="width: 90%; height: 90%;"></div>
                                     <!-- QUADRANT CHART -->
                                 </Div>
                                 <Div class="col-xs-12 col-lg-3">
                                     <div class="chartjs-wrapper">
                                         <H2><br>Runtime</H2>
-                                        <P class="category">Runtime (min) for the Selected Movie versus the Movie in the Genre
-                                             with the Longest Runtime</P>
+                                        <P class="category"></P>
                                         <canvas id="canvas1">
                                             <!-- GAUGE 1 -->
                                         </canvas>
                                         <H2><br>IMDB Votes</H2>
-                                        <P class="category">Number of IMDB Votes for Selected Movie versus Movie in the
-                                            Genre with the most Votes</P>
+                                        <P class="category"></P>
                                         <canvas id="canvas3">
                                             <!--  GAUGE 2 -->
                                         </canvas>
                                         <H2><br>Wins vs Nominations</H2>
-                                        <P class="category">Wins versus Nominations for Selected Movie</P>
+                                        <P class="category"></P>
                                         <canvas id="canvas2">
                                             <!-- GAUGE 3 -->
                                         </canvas>
