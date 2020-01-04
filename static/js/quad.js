@@ -50,6 +50,7 @@ function buildQuad(genre) {
 
             // set the chart title
             chart.title(`${genre} Movies`);
+            
 
             // set the container id
             chart.container("Quadrant");
@@ -61,15 +62,15 @@ function buildQuad(genre) {
                         title: {
                             text: "The Greatest Hits",
                             fontColor: "#fa8072",
-                            fontSize: "12",
+                            fontSize: "20",
                             fontWeight: "bold"
                         }
                     },
                     rightBottom: {
                         title: {
-                            fontColor: "#72fa80",
+                            fontColor: "#fa8072",
                             text: "Critics' Choice",
-                            fontSize: "12",
+                            fontSize: "20",
                             fontWeight: "bold"
                         }
                     },
@@ -83,20 +84,41 @@ function buildQuad(genre) {
                         title: {
                             text: "Fan Favorites",
                             fontColor: "#fa8072",
-                            fontSize: "12",
+                            fontSize: "20",
                             fontWeight: "bold"
                         }
                     },
                     leftBottom: {
                         title: {
-                            fontColor: "#72fa80",
+                            fontColor: "#fa8072",
                             text: "Total Turkeys",
-                            fontSize: "12",
+                            fontSize: "20",
                             fontWeight: "bold"
                         }
                     },
                 }
             );
+
+            //add axis labels
+
+            var labelLBottom1 = chart.quarters().leftBottom().label(1);
+            labelLBottom1.useHtml(true);
+            labelLBottom1.text("IMDB Rating &#8594;");
+            labelLBottom1.position("left-bottom");
+            labelLBottom1.fontSize(16)
+            labelLBottom1.offsetX(-20);
+            labelLBottom1.offsetY(-110);
+            labelLBottom1.rotation(-90);
+
+            var labelLBottom2 = chart.quarters().leftBottom().label(3);
+            labelLBottom2.useHtml(true);
+            labelLBottom2.text("Rotten Tomatoes Critic Score &#8594;");
+            labelLBottom2.position("left-bottom");
+            labelLBottom1.fontSize(16)
+            labelLBottom2.offsetX(80);
+            labelLBottom2.offsetY(30);
+
+
 
             // initiate drawing the chart
             chart.draw();
@@ -136,6 +158,13 @@ function buildQuad(genre) {
                             }]
                         },
                         options: {
+
+                            title: {
+                                display: true,
+                                text: `"${title}" Runtime vs Longest ${genre} Movie of ${maxTime} Mins`,
+                                fontSize: 20,
+
+                            },
                             responsive: true,
                             legend: {
                                 position: 'top',
@@ -195,6 +224,13 @@ function buildQuad(genre) {
                             }]
                         },
                         options: {
+
+                            title: {
+                                display: true,
+                                text: `"${title}" Won ${winchart} Awards Out of ${nomchart} Nominations`,
+                                fontSize: 20,
+
+                            },
                             responsive: true,
                             legend: {
                                 position: 'top',
@@ -254,6 +290,13 @@ function buildQuad(genre) {
                             }]
                         },
                         options: {
+
+                            title: {
+                                display: true,
+                                text: `"${title}" Votes vs Most Ranked ${genre} Movie with ${maxVotes} Votes`,
+                                fontSize: 20,
+
+                            },
                             responsive: true,
                             legend: {
                                 position: 'top',
