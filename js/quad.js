@@ -3,8 +3,17 @@
 //<script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-scatter.min.js"></script-->
 //<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-base.min.js" type="text/javascript"></script-->
 
-function buildchart(data1){
+function buildchart(movie_data){
 }
+
+//id = searchbtn;
+
+var selector = d3.select("#searchbtn");
+
+function movieresults(movie_data){
+
+}
+
 // create data
 anychart.onDocumentReady(function () {
 
@@ -18,7 +27,7 @@ anychart.onDocumentReady(function () {
 		{x: 56, value: 46},
 		{x: 60, value: 54},
 		{x: 72, value: 73}
-	  ];
+	 ];
 
 	// create a chart
 	var chart = anychart.quadrant(data);
@@ -36,7 +45,7 @@ anychart.onDocumentReady(function () {
 	chart.yAxis(1, {ticks: true, labels: true});
 
 	// set the chart title
-	chart.title("Quadrant Chart");
+	chart.title("Quadrant Chart ");
 
 	// set the container id
 	chart.container("Quadrant");
@@ -45,7 +54,7 @@ anychart.onDocumentReady(function () {
 	chart.draw();
 });
 
-function optionChanged(something) {
+function optionChanged(movie_data) {
 	buildchart(newdata)
 }
 
