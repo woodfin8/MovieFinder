@@ -63,5 +63,9 @@ A python script was created to query The Move DB and  the OMDb API. The Movie DB
 * [Chart.js](https://www.chartjs.org/) Chart js usage and documentation
 
 ## Authors
-Brendan Law, Billy Martinez, Melissa Mason, Jacqueline McBean-Blake, Keith Woodfin
+* Brendan Law (M1Bren)
+* Billy Martinez (bmatz0729)
+* Melissa Mason (MelMason)
+* Jacqueline McBean-Blake (jacquiemcb)
+* Keith Woodfin (woodfin8)
 
