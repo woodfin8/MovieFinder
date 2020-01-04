@@ -1,17 +1,18 @@
-let urlgenre = `/movies/${genre}`
+let path = "../data/dummydata.json"
 
 function descriptionBuilder() {
-    d3.csv(urlgenre)
+    d3.json(path)
         .then(d => {
             let data = d[0];
             console.log(data.Poster);
+
+            // document.getElementById("Poster").innerHTML = "";
 
             // let selection = d3.select("#poster")
             //     .selectAll(".Div")
             //     .data(data);
 
             // Put in the Poster
-            document.getElementById("poster").innerHTML = ""
             d3.select("#poster")
                 .selectAll(".img-poster")
                 .data(data)
