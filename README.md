@@ -41,7 +41,7 @@ The purpose of this project is to provide users with an opportunity to explore m
   * d3 - version 5
   * JQuery - version 3.4.1
   * Plotly - version 1.49.1
-  Anychart - version 8.7.0
+  * Anychart - version 8.7.0
 * HTML & CSS:
   * Bootstrap Customization - version 4.3.1
   * Bootswatch Lux - version 4.4.1
