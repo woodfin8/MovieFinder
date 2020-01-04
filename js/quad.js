@@ -44,13 +44,57 @@ anychart.onDocumentReady(function () {
 	chart.yAxis(0, {ticks: true, labels: true});
 	chart.yAxis(1, {ticks: true, labels: true});
 
-	// set the chart title
+		// set the chart title
 	chart.title("Quadrant Chart ");
 
 	// set the container id
 	chart.container("Quadrant");
 
-	// initiate drawing the chart
+// configure quarters
+chart.quarters(
+	{
+		rightTop: {
+			title: {
+				text: "Universally Loved",
+				fontColor: "#fa8072",
+				fontSize: "12",
+				fontWeight: "bold"
+			}
+		},
+		rightBottom: {
+			title: {
+				fontColor: "#72fa80",
+				text: "Critics Rating",
+				fontSize: "12",
+				fontWeight: "bold"
+			}
+		},
+	}
+);
+
+// configure quarters
+chart.quarters(
+	{
+		leftTop: {
+			title: {
+				text: "Fan Favorite",
+				fontColor: "#fa8072",
+				fontSize: "12",
+				fontWeight: "bold"
+			}
+		},
+		leftBottom: {
+			title: {
+				fontColor: "#72fa80",
+				text: "Universally Disliked",
+				fontSize: "12",
+				fontWeight: "bold"
+			}
+		},
+	}
+);
+			
+// initiate drawing the chart
 	chart.draw();
 });
 
