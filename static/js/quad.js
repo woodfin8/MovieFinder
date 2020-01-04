@@ -37,10 +37,11 @@ function buildQuad(genre) {
             tooltip.format("{%title} \n Rotten Tomatoes {%x} \n IMDB {%value} ");
 
             // configure scales
-            chart.yScale().minimum(0);
+            chart.yScale().minimum(2);
             chart.yScale().maximum(10);
-            chart.xScale().minimum(0);
-            chart.xScale().maximum(100);
+            chart.xScale().softMinimum(-5);
+            chart.xScale().softMaximum(105);
+
 
             // configure axes
             chart.xAxis(0, { ticks: true, labels: true });
@@ -101,22 +102,22 @@ function buildQuad(genre) {
 
             //add axis labels
 
-            var labelLBottom1 = chart.quarters().leftBottom().label(1);
-            labelLBottom1.useHtml(true);
-            labelLBottom1.text("IMDB Rating &#8594;");
-            labelLBottom1.position("left-bottom");
-            labelLBottom1.fontSize(16)
-            labelLBottom1.offsetX(-20);
-            labelLBottom1.offsetY(-110);
-            labelLBottom1.rotation(-90);
+            var labelLTop1 = chart.quarters().leftTop().label(1);
+            labelLTop1.useHtml(true);
+            labelLTop1.text("IMDB User Rating");
+            labelLTop1.position("left-top");
+            labelLTop1.fontSize(16)
+            labelLTop1.offsetX(20);
+            labelLTop1.offsetY(130);
+            labelLTop1.rotation(-90);
 
-            var labelLBottom2 = chart.quarters().leftBottom().label(3);
-            labelLBottom2.useHtml(true);
-            labelLBottom2.text("Rotten Tomatoes Critic Score &#8594;");
-            labelLBottom2.position("left-bottom");
-            labelLBottom1.fontSize(16)
-            labelLBottom2.offsetX(80);
-            labelLBottom2.offsetY(30);
+            var labelLTop2 = chart.quarters().leftTop().label(3);
+            labelLTop2.useHtml(true);
+            labelLTop2.text("Rotten Tomatoes Critic Score");
+            labelLTop2.position("left-top");
+            labelLTop2.fontSize(16)
+            labelLTop2.offsetX(130);
+            labelLTop2.offsetY(30);
 
 
 
@@ -227,7 +228,7 @@ function buildQuad(genre) {
 
                             title: {
                                 display: true,
-                                text: `"${title}" Won ${winchart} Awards Out of ${nomchart} Nominations`,
+                                text: `"${title}" Won ${winchart} Awards and Had Another ${nomchart} Nominations`,
                                 fontSize: 20,
 
                             },
