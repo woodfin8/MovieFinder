@@ -6,7 +6,7 @@
 =======
 
 >>>>>>> 8e1de41a8ef59dbd76bc4971fa1262509dbe6698
-## We'll try to follow this general directory structure.  We can change if need be; for example if we more auxiliary resources than just images.
+
 ## Table of contents
 
 =======
@@ -17,7 +17,7 @@
 
 ## General info
 
-The purpose of this project is to provide users with an opportunity to explore movie data and make movie selections based on various parameters. To do this, we munged data from [OMDb](http://www.omdbapi.com/) and [The Movie DB](https://www.themoviedb.org/?language=en-US), and merged the data to SQLAlchemy. We then created an interactive quadrant chart, which displays movie selection based on user-chosen parameters. The user can then select a movie, and additional information about the movie is displayed on various graphs.
+The purpose of this project is to provide users with an opportunity to explore movie data and make movie selections based on various parameters. To do this, we munged data from [OMDb](http://www.omdbapi.com/) and [The Movie DB](https://www.themoviedb.org/?language=en-US), and merged the data to a PostreSQL database. We then created an interactive quadrant chart, which displays movie selection based on user-chosen parameters. The user can then select a movie, and additional information about the movie is displayed.
 
 ## Technologies
 
@@ -46,17 +46,23 @@ The purpose of this project is to provide users with an opportunity to explore m
 * Jinja2 - version 2.10
 * Javascript Packages:
   * Chart- version 7.3
-  * Chart js Plugin Data Labels- version 7.0
+  * Chart.js Plugin Data Labels- version 7.0
   * d3 - version 5
   * JQuery - version 3.4.1
   * Plotly - version 1.49.1
 * HTML & CSS:
-  * Modernizr - version 2.6.0
-  * Foundation - version 4
+  * Bootstrap Customization- version 4.3.1
+  * Bootswatch Lux- version 4.4.1
+  * Popper.js- version 1.14.7
 
 ## Development Process
 
 ### Data Extraction
+
+A python script was created to query The Move DB and  the OMDb API. The Movie DB allowed us to retireve a list of movies based on popularity, but did not provide us with as much information as OMDb, where we could only seach for movies by title. We ran the [OMDB.ipynb](../blob/master/OMDB.ipynb) file to retrieve a list of movies from The Movie DB, by popularity.  We used the "original title" data and created a loop to gather the data for each of the movie titles from OMDb. The data collected was exported to a CSV file. The CSV file was loaded in a PostgreSQL database using the [SQL_Load.ipynb](../blob/master/SQL_Load.ipynb)
+
+### Data Munging
+
 
 ## Resources
 
@@ -67,8 +73,8 @@ The purpose of this project is to provide users with an opportunity to explore m
 * [Chart.js](https://www.chartjs.org/) Chart js usage and documentation
 <<<<<<< HEAD
 =======
-## We'll try to follow this general directory structure.  We can change if need be.
-## For now, put python applications in the project (MovieFinder) main folder instead of a subfolder (such as data)
+## Authors
+Brendan Law, Billy Martinez, Melissa Mason, Jacqueline McBean-Blake, Keith Woodfin
 >>>>>>> master
 =======
 

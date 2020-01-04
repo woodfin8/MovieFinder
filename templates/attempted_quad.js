@@ -32,47 +32,51 @@ function buildCharts(sample) {
     var otu_labels = data.otu_labels;
 
     // @TODO: Build a Bubble Chart using the sample data
-
-    var trace1 = {
-      x: otu_ids,
-      y: sample_values,
-      text: otu_labels,
-      mode: 'markers',
-      marker: {
-        size: sample_values,
-        colors: otu_ids
-      }
-    };
-
-    var bubbleData = [trace1];
-
-    var layout = {
-      height: 600
-    };
-
-    Plotly.plot("bubble", bubbleData, layout);
-
-    // @TODO: Build a Pie Chart
-    var trace = {
-      values: sample_values.slice(0,10),
-      labels: otu_ids.slice(0,10),
-      mode: "markers",
-      marker: {size:10},
-      text: otu_labels.slice(0,10),
-      type: "pie",
-      textinfo: "label+percent",
-      textposition: "outside",
-      automargin: true
-    };
-
-    var pieData = [trace];
-
-    var pieLayout = {
-      height: 600,
-      width: 800
-    };
+    function buildchart(data1){
+    }
+    // create data
+    anychart.onDocumentReady(function () {
     
-    Plotly.plot("pie", pieData, pieLayout);
+        var data = [
+            {x: 4, value: 42},
+            {x: 13, value: 59},
+            {x: 25, value: 68},
+            {x: 25, value: 63},
+            {x: 44, value: 54},
+            {x: 55, value: 58},
+            {x: 56, value: 46},
+            {x: 60, value: 54},
+            {x: 72, value: 73}
+          ];
+    
+        // create a chart
+        var chart = anychart.quadrant(data);
+    
+        // configure scales
+        chart.yScale().minimum(-100);
+        chart.yScale().maximum(100);
+        chart.xScale().minimum(-100);
+        chart.xScale().maximum(100);
+    
+        // configure axes
+        chart.xAxis(0, {ticks: true, labels: true});
+        chart.xAxis(1, {ticks: true, labels: true});
+        chart.yAxis(0, {ticks: true, labels: true});
+        chart.yAxis(1, {ticks: true, labels: true});
+    
+        // set the chart title
+        chart.title("Quadrant Chart");
+    
+        // set the container id
+        chart.container("Quadrant");
+    
+        // initiate drawing the chart
+        chart.draw();
+    });
+    
+    function optionChanged(something) {
+        buildchart(newdata)
+    }
   });
 }
 
