@@ -1,7 +1,7 @@
-let path = "../data/dummydata.json"
+let urlgenre = `/movies/${genre}`
 
 function descriptionBuilder() {
-    d3.json(path)
+    d3.csv(urlgenre)
         .then(d => {
             let data = d[0];
             console.log(data.Poster);
@@ -11,12 +11,12 @@ function descriptionBuilder() {
             //     .data(data);
 
             // Put in the Poster
+            document.getElementById("poster").innerHTML = ""
             d3.select("#poster")
-                .selectAll("Div")
+                .selectAll(".img-poster")
                 .data(data)
                 .enter()
                 .append("div")
-                .classed("row img-rounded", true)
                 .html(data =>
                     `<img class="rounded" 
                     src=${data.Poster}
