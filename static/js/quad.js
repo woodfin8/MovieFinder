@@ -68,6 +68,15 @@ function buildQuad(genre) {
 
             // initiate drawing the chart
             chart.draw();
+
+            chart.listen("pointClick", function (e) {
+                var title = e.point.get('title');
+                console.log(title)
+
+                var urlfilm = `/selection/${title}`;
+                console.log(urlfilm);
+            })
+
         })
     })
 }
