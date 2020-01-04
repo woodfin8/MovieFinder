@@ -35,11 +35,7 @@
     <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js" defer></script>
 
     <!-- Paths to Relevant JavaScript Files -->
-    <script type="text/javascript" src="../static/js/runtime_gauge.js" defer></script>
-    <script type="text/javascript" src="../static/js/wins_noms_gauge.js" defer></script>
-    <script type="text/javascript" src="../static/js/voteCount_gauge.js" defer></script>
-    <script type="text/javascript" src="../static/js/quad.js" defer></script>
-    <script type="text/javascript" src="../static/js/movieDescription.js" defer></script>
+
 </Head>
 
 <Body>
@@ -111,9 +107,9 @@
                 <Div class="col-md-12">
                     <Div class="Box">
                         <Div class="header">
-                            <H1 class="title" style="text-align:center"><br>What's on TV?</H1>
-                            <P class="category" style="text-align:center">Compare 10 Movies According to Genre and Rank
-                                Them By Various Ratings and Box Office Numbers.
+                            <H1 class="title" style="text-align:center"><br>What to Watch Tonight</H1>
+                            <P class="category" style="text-align:center">Compare Movies by Genre, Get Rankings, Runtime,
+                                Awards and Other Info
                                 <br>Click On the Dots to Select Each Individual Movie!</P>
                         </Div>
                         <Div class="content" style="text-align:center">
@@ -126,21 +122,21 @@
                                 </Div>
                                 <Div class="col-xs-12 col-lg-3">
                                     <div class="chartjs-wrapper">
-                                        <H2><br>Gauge 1</H2>
-                                        <P class="category">Runtime (min) for the Selected Movie versus the Movie on the
-                                            Chart with the Longest Runtime</P>
-                                        <canvas class="chartjs-gauge-1">
+                                        <H2><br>Runtime</H2>
+                                        <P class="category">Runtime (min) for the Selected Movie versus the Movie in the Genre
+                                             with the Longest Runtime</P>
+                                        <canvas id="canvas1">
                                             <!-- GAUGE 1 -->
                                         </canvas>
-                                        <H2><br>Gauge 2</H2>
-                                        <P class="category">Number of IMDB Votes for Selected Movie versus Movie on the
-                                            Chart with the most Votes</P>
-                                        <canvas class="chartjs-gauge-2">
+                                        <H2><br>IMDB Votes</H2>
+                                        <P class="category">Number of IMDB Votes for Selected Movie versus Movie in the
+                                            Genre with the most Votes</P>
+                                        <canvas class="canvas3">
                                             <!--  GAUGE 2 -->
                                         </canvas>
-                                        <H2><br>Gauge 3</H2>
+                                        <H2><br>Wins vs Nominations</H2>
                                         <P class="category">Wins versus Nominations for Selected Movie</P>
-                                        <canvas class="chartjs-gauge-3">
+                                        <canvas class="canvas2">
                                             <!-- GAUGE 3 -->
                                         </canvas>
                                     </div>
@@ -158,6 +154,11 @@
             </Div>
         </Div>
     </Div>
+    <script type="text/javascript" src="../static/js/runtime_gauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/wins_noms_gauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/voteCount_gauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/quad.js" defer></script>
+    <script type="text/javascript" src="../static/js/movieDescription.js" defer></script>
 </Body>
 
 </HTML>
