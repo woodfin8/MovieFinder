@@ -1,12 +1,5 @@
 # MovieFinder
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 8e1de41a8ef59dbd76bc4971fa1262509dbe6698
-
 ## Table of contents
 
 =======
@@ -61,7 +54,6 @@ The purpose of this project is to provide users with an opportunity to explore m
 
 A python script was created to query The Move DB and  the OMDb API. The Movie DB allowed us to retireve a list of movies based on popularity, but did not provide us with as much information as OMDb, where we could only seach for movies by title. We ran the [OMDB.ipynb](../blob/master/OMDB.ipynb) file to retrieve a list of movies from The Movie DB, by popularity.  We used the "original title" data and created a loop to gather the data for each of the movie titles from OMDb. The data collected was exported to a CSV file. The CSV file was loaded in a PostgreSQL database using the [SQL_Load.ipynb](../blob/master/SQL_Load.ipynb)
 
-### Data Munging
 
 
 ## Resources
@@ -75,7 +67,4 @@ A python script was created to query The Move DB and  the OMDb API. The Movie DB
 =======
 ## Authors
 Brendan Law, Billy Martinez, Melissa Mason, Jacqueline McBean-Blake, Keith Woodfin
->>>>>>> master
-=======
 
->>>>>>> 8e1de41a8ef59dbd76bc4971fa1262509dbe6698
