@@ -28,7 +28,7 @@ The purpose of this project is to provide users with an opportunity to explore m
 
 ### Database
 
-* sqlite3 - version 3.26.0
+* PostgreSQL - version 4.13
 * SQLAlchemy - version 1.2.15
 
 ### Data Rendering and Visualization
