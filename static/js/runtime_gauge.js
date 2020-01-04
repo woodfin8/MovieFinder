@@ -1,68 +1,78 @@
 // Create chart Runtime
-var ctx = document.getElementsByClassName("chartjs-gauge-1");
-var chart = new Chart(ctx, {
-    type: "doughnut",
-    data: {
-        labels: ["Runtime (mins)", "Longest Runtime (mins)"],
-        datasets: [{
-            label: "Gauge",
-            data: [40, 360],
-            backgroundColor: [
-                "rgb(255, 99, 132)",
-                "rgb(54, 162, 235)"
-            ]
-        }]
-    },
-    options: {
-        responsive: true,
-        legend: {
-            position: 'top',
-        },
-        // title: {
-        //     display: true,
-        //     text: 'Movie Runtime',
-        //     fontSize: 40 
-        // },
+function buildCharts(film) {
+    // @TODO: Use `d3.json` to fetch the sample data for the plots
+   var url = `/selection/Alien`;
+ 
+   d3.json(url).then((data) => {
+ 
+        var runtime = data.Runtime;
 
-        circumference: Math.PI,
-        rotation: Math.PI,
-        cutoutPercentage: 80, // precent
-        plugins: {
-            datalabels: {
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                borderColor: '#ffffff',
-                color: function (context) {
-                    return context.dataset.backgroundColor;
+        var ctx = document.getElementsByClassName("chartjs-gauge-1");
+        var chart = new Chart(ctx, {
+            type: "doughnut",
+            data: {
+                labels: ["Runtime (mins)", "Longest Runtime (mins)"],
+                datasets: [{
+                    label: "Gauge",
+                    data: [runtime(), 238],
+                    backgroundColor: [
+                        "rgb(255, 99, 132)",
+                        "rgb(54, 162, 235)"
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
                 },
-                font: function (context) {
-                    var w = context.chart.width;
-                    return {
-                        size: w < 512 ? 18 : 20
+                // title: {
+                //     display: true,
+                //     text: 'Movie Runtime',
+                //     fontSize: 40 
+                // },
+
+                circumference: Math.PI,
+                rotation: Math.PI,
+                cutoutPercentage: 80, // precent
+                plugins: {
+                    datalabels: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        borderColor: '#ffffff',
+                        color: function (context) {
+                            return context.dataset.backgroundColor;
+                        },
+                        font: function (context) {
+                            var w = context.chart.width;
+                            return {
+                                size: w < 512 ? 18 : 20
+                            }
+                        },
+                        align: 'start',
+                        anchor: 'start',
+                        offset: 10,
+                        borderRadius: 4,
+                        borderWidth: 1,
+                        formatter: function (value, context) {
+                            var i = context.dataIndex;
+                            var len = context.dataset.data.length - 1;
+                            if (i == len) {
+                                return null;
+                            }
+                            return value + ' minutes';
+                        }
                     }
                 },
-                align: 'start',
-                anchor: 'start',
-                offset: 10,
-                borderRadius: 4,
-                borderWidth: 1,
-                formatter: function (value, context) {
-                    var i = context.dataIndex;
-                    var len = context.dataset.data.length - 1;
-                    if (i == len) {
-                        return null;
-                    }
-                    return value + ' minutes';
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: true
                 }
             }
-        },
-        legend: {
-            display: false
-        },
-        tooltips: {
-            enabled: true
-        }
-    }
-});
+        });
+    })
+};
 
 
 // // // DEMO Code: not relevant to example
