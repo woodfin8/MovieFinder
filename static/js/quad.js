@@ -126,12 +126,11 @@ function buildQuad(genre) {
 
 
             chart.listen("pointClick", function (e) {
-                var title = e.point.get('title');
-                console.log(title)
+                let title = e.point.get('title');
+                console.log(title);
 
-                var urlfilm = `/selection/${title}`;
+                let urlfilm = `/selection/${title}`;
                 console.log(urlfilm);
-
 
                 document.getElementById("canvas1").innerHTML = "";
                 document.getElementById("canvas2").innerHTML = "";
@@ -343,6 +342,7 @@ function buildQuad(genre) {
                         }
                     });
                 })
+                return urlfilm;
             })
 
 

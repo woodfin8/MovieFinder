@@ -1,28 +1,35 @@
-let urlgenre = `/movies/${genre}`
+chart.listen("pointClick", function (e) {
+    let title = e.point.get('title');
+    console.log(title);
 
-function descriptionBuilder() {
-    d3.csv(urlgenre)
-        .then(d => {
-            let data = d[0];
-            console.log(data.Poster);
+    let urlfilm = `/selection/${title}`;
+    console.log(urlfilm)
+});
 
-            // let selection = d3.select("#poster")
-            //     .selectAll(".Div")
-            //     .data(data);
+// function descriptionBuilder() {
+//     init();
+//     d3.json(urlfilm)
+//         .then(urlfilm => {
+//             console.log(urlfilm);
 
-            // Put in the Poster
-            document.getElementById("poster").innerHTML = ""
-            d3.select("#poster")
-                .selectAll(".img-poster")
-                .data(data)
-                .enter()
-                .append("div")
-                .html(data =>
-                    `<img class="rounded" 
-                    src=${data.Poster}
-                    style="width: 18rem"
-                    alt="No Movie Poster Avaliable">`);
-        });
-};
+//             // document.getElementById("Poster").innerHTML = "";
 
-descriptionBuilder();
+//             // let selection = d3.select("#poster")
+//             //     .selectAll(".Div")
+//             //     .data(data);
+
+//             // Put in the Poster
+//             // d3.select("#poster")
+//             //     .selectAll(".img-poster")
+//             //     .data(data)
+//             //     .enter()
+//             //     .append("div")
+//             //     .html(data =>
+//             //         `<img class="rounded" 
+//             //         src=${data.Poster}
+//             //         style="width: 18rem"
+//             //         alt="No Movie Poster Avaliable">`);
+//         });
+// };
+
+// descriptionBuilder();
