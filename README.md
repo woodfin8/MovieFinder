@@ -36,15 +36,16 @@ The purpose of this project is to provide users with an opportunity to explore m
 * Flask - version 1.0.2
 * Jinja2 - version 2.10
 * Javascript Packages:
-  * Chart- version 7.3
-  * Chart.js Plugin Data Labels- version 7.0
+  * Chart - version 7.3
+  * Chart.js Plugin Data Labels - version 7.0
   * d3 - version 5
   * JQuery - version 3.4.1
   * Plotly - version 1.49.1
+  * Anychart - version 8.7.0
 * HTML & CSS:
-  * Bootstrap Customization- version 4.3.1
-  * Bootswatch Lux- version 4.4.1
-  * Popper.js- version 1.14.7
+  * Bootstrap Customization - version 4.3.1
+  * Bootswatch Lux - version 4.4.1
+  * Popper.js - version 1.14.7
 
 ## Development Process
 
@@ -63,5 +64,9 @@ A python script was created to query The Move DB and  the OMDb API. The Movie DB
 * [Chart.js](https://www.chartjs.org/) Chart js usage and documentation
 
 ## Authors
-Brendan Law, Billy Martinez, Melissa Mason, Jacqueline McBean-Blake, Keith Woodfin
+* Brendan Law (M1Bren)
+* Billy Martinez (bmatz0729)
+* Melissa Mason (MelMason)
+* Jacqueline McBean-Blake (jacquiemcb)
+* Keith Woodfin (woodfin8)
 
