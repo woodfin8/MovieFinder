@@ -22,18 +22,18 @@ function buildQuad(genre) {
         //combine the two arrays into an array of arrays
         var results = RT.map((x, i) =>
             [x, IMDB[i]]);
-        console.log(results, Title);
+        // console.log(results, Title);
 
         var data = RT.map((x, i) =>
             [Title[i], x, IMDB[i]]);
 
-        console.log(data);
+        // console.log(data);
 
         var dataSet = anychart.data.set(data);
 
         var mapping = dataSet.mapAs({ title: 0, x: 1, value: 2 });
 
-        console.log(mapping)
+        // console.log(mapping)
 
 
         //create quadrant chart with any chart js library
@@ -78,7 +78,7 @@ function init() {
 }
 
 function optionChanged(newGenre) {
-    console.log(newGenre);
+    // console.log(newGenre);
     // Fetch new data each time a new sample is selected
     buildQuad(newGenre);
 }

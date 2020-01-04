@@ -35,17 +35,17 @@
     <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js" defer></script>
 
     <!-- Paths to Relevant JavaScript Files -->
-    <script type="text/javascript" src="../js/runtime_gauge.js" defer></script>
-    <script type="text/javascript" src="../js/wins_noms_gauge.js" defer></script>
-    <script type="text/javascript" src="../js/voteCount_gauge.js" defer></script>
-    <script type="text/javascript" src="../js/quad.js" defer></script>
-    <script type="text/javascript" src="../js/movieDescription.js" defer></script>
+    <script type="text/javascript" src="../static/js/runtime_gauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/wins_noms_gauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/voteCount_gauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/quad.js" defer></script>
+    <script type="text/javascript" src="../static/js/movieDescription.js" defer></script>
 </Head>
 
 <Body>
     <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a class="navbar-brand" href="#">Movie Finder</a>
+            <a class="navbar-brand btn btn-space" href="#">Movie Finder</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li>
-                        <select class="custom-select" onchange="optionChanged(this.value)">
+                        <select class="custom-select mr-5" onchange="optionChanged(this.value)">
                             <option selected>Genre</option>
                             <option value="Action">Action</option>
                             <option value="Adventure">Adventure</option>
@@ -77,8 +77,8 @@
                         </select>
                     </li>
                     <li>
-                        <select class="custom-select">
-                            <option selected>X-Axis</option>
+                        <select class="custom-select ml-1">
+                            <option selected>X-Axis: Rotten Tomatoes</option>
                             <option value="IMDB">IMDB</option>
                             <option value="Rotten_Tomatoes">Rotten Tomatoes</option>
                             <option>Metacritic</option>
@@ -86,8 +86,8 @@
                         </select>
                     </li>
                     <li>
-                        <select class="custom-select">
-                            <option selected>Y-Axis</option>
+                        <select class="custom-select ml-2">
+                            <option selected>Y-Axis: IMDB</option>
                             <option value="IMDB">IMDB</option>
                             <option value="Rotten_Tomatoes">Rotten Tomatoes</option>
                             <option>Metacritic</option>
@@ -120,13 +120,13 @@
                             <Div class="row">
                                 <Div class="col-xs-12 col-lg-8">
                                     <H2><br>Quadrant Chart</H2>
-                                    <P class="category">See How the Numbers Stack Up on the Board</P>
+                                    <P class="category">See How the Numbers Stack Up on the Board According to Genre</P>
                                     <div id="Quadrant" style="width: 90%; height: 90%;"></div>
                                     <!-- QUADRANT CHART -->
                                 </Div>
                                 <Div class="col-xs-12 col-lg-3">
                                     <div class="chartjs-wrapper">
-                                        <H2>Gauge 1</H2>
+                                        <H2><br>Gauge 1</H2>
                                         <P class="category">Runtime (min) for the Selected Movie versus the Movie on the
                                             Chart with the Longest Runtime</P>
                                         <canvas class="chartjs-gauge-1">
@@ -146,16 +146,12 @@
                                     </div>
                                 </Div>
                             </Div>
-                            <Div class="container-fluid">
+                            <Div class="container-fluid" id="poster">
                                 <Div class="row img-rounded">
-                                    <!-- <img id="poster" class="rounded" style="width: 18rem"
-                                            alt="No Movie Poster Avaliable"> -->
-                                    <!-- src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg" -->
                                     <!-- PUT MOVIE POSTER in src -->
-                                    <!-- </img> -->
                                 </Div>
                             </Div>
-                            <H1 class="col-xs offset-xs-3" id="Title">Blade Runner 2049</H1>
+                            <!-- <H1 class="col-xs offset-xs-3" id="Title">Blade Runner 2049</H1> -->
                         </Div>
                     </Div>
                 </Div>
@@ -165,3 +161,9 @@
 </Body>
 
 </HTML>
+
+                                    <!-- <img class="rounded" style="width: 18rem"
+                                            alt="No Movie Poster Avaliable"> -->
+                                    <!-- src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg" -->
+                                    
+                                    <!-- </img> -->
