@@ -2,7 +2,6 @@
 function winsNomsGauge(urlFilm) {
     // All parameters are from the quad.js file.
     // urlFilm: Flask url to access the json data of the movie selected
-    // maxTime: Runtime of the longest movie in the selected genre
 
     // Clear the gauge chart of previous data
     document.getElementById("canvas3").innerHTML = "";

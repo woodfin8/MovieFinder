@@ -2,7 +2,7 @@
 function runtimeGauge(urlFilm, maxTime, genre) {
     // All parameters are from the quad.js file.
     // urlFilm: Flask url to access the json data of the movie selected
-    // maxTime: Runtime of the longest movie in the selected genre
+    // maxTime: Runtime for the longest movie in the selected genre
     // genre: SINGLE genre as defined from the quadrant chart selection
 
     // Clear the gauge chart of previous data

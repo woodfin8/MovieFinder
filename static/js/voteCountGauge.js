@@ -1,5 +1,10 @@
 // Create chart Runtime
 function voteCountGauge(urlFilm, maxVotes, genre) {
+    // All parameters are from the quad.js file.
+    // urlFilm: Flask url to access the json data of the movie selected
+    // maxVotes: Number of votes for the movie with the most votes in the selected genre
+    // genre: SINGLE genre as defined from the quadrant chart selection
+
     // Clear the gauge chart of previous data
     document.getElementById("canvas2").innerHTML = "";
 

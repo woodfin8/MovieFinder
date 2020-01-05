@@ -1,5 +1,4 @@
 function descriptionBuilder(urlfilm) {
-    console.log("hello world");
     console.log(urlfilm);
     // d3.json(urlfilm)
         // .then(urlfilm => {
