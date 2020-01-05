@@ -1,20 +1,27 @@
 // Create chart Runtime
-function buildCharts(film) {
-    // @TODO: Use `d3.json` to fetch the sample data for the plots
-   var url = `/selection/Alien`;
- 
-   d3.json(url).then((data) => {
- 
-        var runtime = data.Runtime;
+function runtimeGauge(urlFilm, maxTime, genre) {
+    // All parameters are from the quad.js file.
+    // urlFilm: Flask url to access the json data of the movie selected
+    // maxTime: Runtime of the longest movie in the selected genre
+    // genre: SINGLE genre as defined from the quadrant chart selection
 
-        var ctx = document.getElementsByClassName("chartjs-gauge-1");
+    // Clear the gauge chart of previous data
+    document.getElementById("canvas1").innerHTML = "";
+
+    // Use `d3.json` to fetch the sample data for the plots
+    d3.json(urlFilm).then(data => {
+
+        var runtime = data.Runtime;
+        var title = data.Title;
+
+        var ctx = document.getElementById("canvas1").getContext('2d');
         var chart = new Chart(ctx, {
             type: "doughnut",
             data: {
-                labels: ["Runtime (mins)", "Longest Runtime (mins)"],
+                labels: ["Runtime (mins)", "Longest Movie - Runtime (mins)"],
                 datasets: [{
                     label: "Gauge",
-                    data: [runtime(), 238],
+                    data: [runtime, (maxTime - runtime)],
                     backgroundColor: [
                         "rgb(255, 99, 132)",
                         "rgb(54, 162, 235)"
@@ -22,15 +29,17 @@ function buildCharts(film) {
                 }]
             },
             options: {
+
+                title: {
+                    display: true,
+                    text: `"${title}" Runtime vs Longest ${genre} Movie of ${maxTime} Mins`,
+                    fontSize: 20,
+
+                },
                 responsive: true,
                 legend: {
                     position: 'top',
                 },
-                // title: {
-                //     display: true,
-                //     text: 'Movie Runtime',
-                //     fontSize: 40 
-                // },
 
                 circumference: Math.PI,
                 rotation: Math.PI,
@@ -67,53 +76,9 @@ function buildCharts(film) {
                     display: false
                 },
                 tooltips: {
-                    enabled: true
+                    enabled: false
                 }
             }
-        });
+        })
     })
 };
-
-
-// // // DEMO Code: not relevant to example
-// function change_gauge(chart, label, data){
-//   chart.data.datasets.forEach((dataset) => {
-//     if(dataset.label == label){
-//       dataset.data = data;
-//     }  
-//   });
-//   chart.update();
-// }
-
-// var accelerating = false;
-// function accelerate(){
-//   accelerating = false;
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[20,140])
-//   }, 1000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[60,140])
-//   }, 2000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[100,100])
-//   }, 3000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[180,20])
-//   }, 4000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[200,0])
-//   }, 5000);
-// }
-
-// // Start sequence
-// accelerate();
-// window.setInterval(function(){
-//   if(!accelerating){
-//     acelerating = true;
-//     accelerate();
-//   }
-// }, 6000);

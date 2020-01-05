@@ -1,35 +1,27 @@
-chart.listen("pointClick", function (e) {
-    let title = e.point.get('title');
-    console.log(title);
+function descriptionBuilder(urlfilm) {
+    console.log("hello world");
+    console.log(urlfilm);
+    // d3.json(urlfilm)
+        // .then(urlfilm => {
+        //     console.log(urlfilm);
 
-    let urlfilm = `/selection/${title}`;
-    console.log(urlfilm)
-});
+        //     document.getElementById("Poster").innerHTML = "";
 
-// function descriptionBuilder() {
-//     init();
-//     d3.json(urlfilm)
-//         .then(urlfilm => {
-//             console.log(urlfilm);
+        //     let selection = d3.select("#poster")
+        //         .selectAll(".Div")
+        //         .data(data);
 
-//             // document.getElementById("Poster").innerHTML = "";
+        //     d3.select("#poster")
+        //         .selectAll(".img-poster")
+        //         .data(data)
+        //         .enter()
+        //         .append("div")
+        //         .html(data =>
+        //             `<img class="rounded" 
+        //             src=${data.Poster}
+        //             style="width: 18rem"
+        //             alt="No Movie Poster Avaliable">`);
+        // });
+};
 
-//             // let selection = d3.select("#poster")
-//             //     .selectAll(".Div")
-//             //     .data(data);
-
-//             // Put in the Poster
-//             // d3.select("#poster")
-//             //     .selectAll(".img-poster")
-//             //     .data(data)
-//             //     .enter()
-//             //     .append("div")
-//             //     .html(data =>
-//             //         `<img class="rounded" 
-//             //         src=${data.Poster}
-//             //         style="width: 18rem"
-//             //         alt="No Movie Poster Avaliable">`);
-//         });
-// };
-
-// descriptionBuilder();
+descriptionBuilder();

@@ -38,9 +38,9 @@
     <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js" defer></script>
 
     <!-- Paths to Relevant JavaScript Files -->
-    <script type="text/javascript" src="../static/js/runtime_gauge.js" defer></script>
-    <script type="text/javascript" src="../static/js/wins_noms_gauge.js" defer></script>
-    <script type="text/javascript" src="../static/js/voteCount_gauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/runtimeGauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/voteCountGauge.js" defer></script>
+    <script type="text/javascript" src="../static/js/winsNomsGauge.js" defer></script>
     <script type="text/javascript" src="../static/js/quad.js" defer></script>
     <script type="text/javascript" src="../static/js/movieDescription.js" defer></script>
 
@@ -59,8 +59,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li>
                         <select class="custom-select mr-5" onchange="optionChanged(this.value)">
-                            <option selected>Genre</option>
-                            <option value="Action">Action</option>
+                            <option selected value="Action">Action</option>
                             <option value="Adventure">Adventure</option>
                             <option value="Animation">Animation</option>
                             <option value="Biography">Biography</option>
@@ -82,12 +81,12 @@
                     </li>
                     <li>
                         <select class="custom-select ml-1">
-                            <option selected>X-Axis: Rotten Tomatoes</option>
+                            <option selected>Rotten Tomatoes</option>
                         </select>
                     </li>
                     <li>
                         <select class="custom-select ml-2">
-                            <option selected>Y-Axis: IMDB</option>
+                            <option selected>IMDB</option>
                         </select>
                     </li>
                 </ul>
@@ -112,8 +111,8 @@
                             <Div class="row">
                                 <Div class="col-xs-12 col-lg-8">
                                     <H2><br>What to Watch Tonight</H2>
-                                    <P class="category">Movies Ranked by Critics and Users.
-                                        Click Data Points for More Info.
+                                    <P class="category">Movies Ranked According to Critics (Rotten Tomatoes) by Users (IMDB).
+                                        <br>Change to Genre of Choice and then Click Data Points for More Info.
                                     </P>
 
                                     <div id="Quadrant" style="width: 90%; height: 90%;"></div>
@@ -128,12 +127,12 @@
                                         </canvas>
                                         <H2><br>IMDB Votes</H2>
                                         <P class="category"></P>
-                                        <canvas id="canvas3">
+                                        <canvas id="canvas2">
                                             <!--  GAUGE 2 -->
                                         </canvas>
                                         <H2><br>Wins and Nominations</H2>
                                         <P class="category"></P>
-                                        <canvas id="canvas2">
+                                        <canvas id="canvas3">
                                             <!-- GAUGE 3 -->
                                         </canvas>
                                     </div>
