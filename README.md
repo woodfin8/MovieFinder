@@ -56,14 +56,20 @@ This project provides users an opportunity to explore and choose movies based on
 
 ### Data Extraction
 
-A python script was created to query The Movie DB and  the OMDb API's. The Movie DB allowed us to retireve a list of movies based on user votes but did not provide us with as much information as OMDb, where we could only seach for movies by title. We ran the [OMDB.ipynb](../master/OMDB.ipynb) file to retrieve a list of movies from The Movie DB by vote count.  We used the "original title" data and created a loop to gather the data for each of the movie titles from OMDb. Data was cleaned with pandas, regex and python list comprehension. The data collected was exported to a CSV file, and then the CSV file was loaded in a PostgreSQL database using the [SQL_Load.ipynb](../master/SQL_Load.ipynb)
+A python script was created to query The Movie Database (TMDB) and  the Open Movie Database (OMDB) API's. The Movie DB allowed us to retireve a list of movies based on user votes but did not provide us with as much information as OMDb, where we could only seach for movies by title. We ran the [OMDB.ipynb](../master/OMDB.ipynb) file to retrieve a list of movies from The Movie DB by vote count.  We used the "original title" data and created a loop to gather the data for each of the movie titles from OMDb. Data was cleaned with pandas, regex and python list comprehension. The data collected was exported to a CSV file, and then the CSV file was loaded in a PostgreSQL database using the [SQL_Load.ipynb](../master/SQL_Load.ipynb)
 
 ### Instructions
-Install the above dependencies. You will need to sign up for API keys from The Movie Database (TMDB) at https://www.themoviedb.org/account/signup?language=en-US and the Open Movie Database (OMDB) at http://www.omdbapi.com/apikey.aspx.
-Create a python file named config2.py. Assign your TMDB key to the variable "tmdb_key", assign your OMDB key to the variable "omdb_key" and assign your PostgreSQL password to the variable "pwrd".
-Run OMDB.ipynb. This will first run an API call on the TMDB API. The information from this API call will be used to run an API loop on the OMDB API. Note that you will need to be an OMDB Pateron to make more than 1,000 API calls/day to their API. The data will be stored as a CSV to the data folder. 
-To load the data to your PostgreSQL, run SQL_Load.ipynb. Make sure your user name and host name are correct under the variable "rds_connection_string".
-Run the app.py file in Python Terminal to start the web app. 
+Install the above dependencies. 
+
+If you choose to extract your own data from OMDB and TMDB, you will need to sign up for API keys from The Movie Database (TMDB) at https://www.themoviedb.org/account/signup?language=en-US and the Open Movie Database (OMDB) at http://www.omdbapi.com/apikey.aspx.
+* Create a python file named config2.py. 
+* Assign your TMDB key to the variable "tmdb_key", assign your OMDB key to the variable "omdb_key" and assign your PostgreSQL password to the variable "pwrd".
+* Run OMDB.ipynb. This will first run an API call on the TMDB API. The information from this API call will be used to run an API loop on the OMDB API. ***Note that you will need to be an OMDB Pateron to make more than 1,000 API calls/day to their API.
+* The data will be stored as a CSV to the data folder named 'movies.csv'. 
+
+Alternatively, you may load the movies.csv file already provided in the data folder directly into PostgreSQL.  You will still need a config2.py file with the variable "pwrd" defined as your PostgreSQL password.
+* Whichever you choose. load the movies.csv data to your PostgreSQL, run SQL_Load.ipynb. ***Make sure your user name and host name are correct under the variable "rds_connection_string".
+* Run the app.py file in Python Terminal to start the web app. 
 
 
 ## Resources
