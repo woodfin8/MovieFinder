@@ -132,7 +132,7 @@ function buildQuad(genre) {
                 // console.log(urlfilm);
 
                 // Adds Selected Movie Information to the Bottom of the index Webpage
-                descriptionBuilder(urlFilm);
+                movieDescription(urlFilm);
 
                 // Adds a Runtime Gauge
                 runtimeGauge(urlFilm, maxTime, genre);
@@ -150,15 +150,18 @@ function buildQuad(genre) {
 };
 
 function init() { 
+    // initializes the webpage with the Action Movies Quadrant Chart and information pertaining to "The Dark Knight"
     const initGenre = "Action";
     buildQuad(initGenre);
 
     const initMovie = `/selection/The Dark Knight`;
     const initTime = 187;
     const initMaxVotes = 2141768; 
+
     runtimeGauge(initMovie, initTime, initGenre);
     voteCountGauge(initMovie, initMaxVotes, initGenre);
     winsNomsGauge(initMovie);
+    // movieDescription(initMovie);
 };
 
 function optionChanged(newGenre) {
