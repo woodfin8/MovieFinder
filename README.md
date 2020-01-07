@@ -56,7 +56,7 @@ This project provides users an opportunity to explore and choose movies based on
 
 ### Data Extraction
 
-A python script was created to query The Move DB and  the OMDb API's. The Movie DB allowed us to retireve a list of movies based on user votes, but did not provide us with as much information as OMDb, where we could only seach for movies by title. We ran the [OMDB.ipynb](../master/OMDB.ipynb) file to retrieve a list of movies from The Movie DB, by vote count.  We used the "original title" data and created a loop to gather the data for each of the movie titles from OMDb. Data was cleaned with pandas, regex and python list comprehens9ion. The data collected was exported to a CSV file. The CSV file was loaded in a PostgreSQL database using the [SQL_Load.ipynb](../master/SQL_Load.ipynb)
+A python script was created to query The Movie DB and  the OMDb API's. The Movie DB allowed us to retireve a list of movies based on user votes but did not provide us with as much information as OMDb, where we could only seach for movies by title. We ran the [OMDB.ipynb](../master/OMDB.ipynb) file to retrieve a list of movies from The Movie DB by vote count.  We used the "original title" data and created a loop to gather the data for each of the movie titles from OMDb. Data was cleaned with pandas, regex and python list comprehension. The data collected was exported to a CSV file, and then the CSV file was loaded in a PostgreSQL database using the [SQL_Load.ipynb](../master/SQL_Load.ipynb)
 
 ### Instructions
 Install the above dependencies. You will need to sign up for API keys from The Movie Database (TMDB) at https://www.themoviedb.org/account/signup?language=en-US and the Open Movie Database (OMDB) at http://www.omdbapi.com/apikey.aspx.
