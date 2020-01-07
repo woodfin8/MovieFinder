@@ -37,11 +37,10 @@ function buildQuad(genre) {
             tooltip.format("{%title} \n Rotten Tomatoes {%x} \n IMDB {%value} ");
 
             // configure scales
-            chart.yScale().minimum(2);
+            chart.yScale().minimum(0);
             chart.yScale().maximum(10);
-            chart.xScale().softMinimum(-5);
-            chart.xScale().softMaximum(105);
-
+            chart.xScale().minimum(0);
+            chart.xScale().maximum(100);
 
             // configure axes
             chart.xAxis(0, { ticks: true, labels: true });
@@ -102,264 +101,66 @@ function buildQuad(genre) {
 
             //add axis labels
 
-            var labelLTop1 = chart.quarters().leftTop().label(1);
-            labelLTop1.useHtml(true);
-            labelLTop1.text("IMDB User Rating");
-            labelLTop1.position("left-top");
-            labelLTop1.fontSize(16)
-            labelLTop1.offsetX(20);
-            labelLTop1.offsetY(130);
-            labelLTop1.rotation(-90);
+            var labelLBottom1 = chart.quarters().leftBottom().label(1);
+            labelLBottom1.useHtml(true);
+            labelLBottom1.text("IMDB Rating &#8594;");
+            labelLBottom1.position("left-bottom");
+            labelLBottom1.fontSize(16)
+            labelLBottom1.offsetX(-20);
+            labelLBottom1.offsetY(-110);
+            labelLBottom1.rotation(-90);
 
-            var labelLTop2 = chart.quarters().leftTop().label(3);
-            labelLTop2.useHtml(true);
-            labelLTop2.text("Rotten Tomatoes Critic Score");
-            labelLTop2.position("left-top");
-            labelLTop2.fontSize(16)
-            labelLTop2.offsetX(130);
-            labelLTop2.offsetY(30);
+            var labelLBottom2 = chart.quarters().leftBottom().label(3);
+            labelLBottom2.useHtml(true);
+            labelLBottom2.text("Rotten Tomatoes Critic Score &#8594;");
+            labelLBottom2.position("left-bottom");
+            labelLBottom1.fontSize(16)
+            labelLBottom2.offsetX(80);
+            labelLBottom2.offsetY(30);
 
 
 
             // initiate drawing the chart
             chart.draw();
 
-
+            // "Listens" for data point clicks on the quadrant chart and adds the appropriate information for the selected movie
             chart.listen("pointClick", function (e) {
                 var title = e.point.get('title');
-                console.log(title)
+                // console.log(title);
 
-                var urlfilm = `/selection/${title}`;
-                console.log(urlfilm);
+                var urlFilm = `/selection/${title}`;
+                // console.log(urlfilm);
 
+                // // Adds Selected Movie Information to the Bottom of the index Webpage
+                // descriptionBuilder(urlFilm);
 
-                document.getElementById("canvas1").innerHTML = "";
-                document.getElementById("canvas2").innerHTML = "";
-                document.getElementById("canvas3").innerHTML = "";
+                // Adds a Runtime Gauge
+                runtimeGauge(urlFilm, maxTime, genre);
 
-                d3.json(urlfilm).then(data => {
+                // Add a Vote Count Gauge
+                voteCountGauge(urlFilm, maxVotes, genre);
 
-                    var runtime = data.Runtime;
-                    var winchart = data.Wins;
-                    var nomchart = data.Nominations;
-                    var votechart = data.imdbVotes;
+                // Adds a Wins vs. Noms Gauge
+                winsNomsGauge(urlFilm);
 
-                    var ctx = document.getElementById("canvas1").getContext('2d');
-                    var chart = new Chart(ctx, {
-                        type: "doughnut",
-                        data: {
-                            labels: ["Runtime (mins)", "Longest Movie - Runtime (mins)"],
-                            datasets: [{
-                                label: "Gauge",
-                                data: [runtime, (maxTime - runtime)],
-                                backgroundColor: [
-                                    "rgb(255, 99, 132)",
-                                    "rgb(54, 162, 235)"
-                                ]
-                            }]
-                        },
-                        options: {
-
-                            title: {
-                                display: true,
-                                text: `"${title}" Runtime vs Longest ${genre} Movie of ${maxTime} Mins`,
-                                fontSize: 20,
-
-                            },
-                            responsive: true,
-                            legend: {
-                                position: 'top',
-                            },
-
-                            circumference: Math.PI,
-                            rotation: Math.PI,
-                            cutoutPercentage: 80, // precent
-                            plugins: {
-                                datalabels: {
-                                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                                    borderColor: '#ffffff',
-                                    color: function (context) {
-                                        return context.dataset.backgroundColor;
-                                    },
-                                    font: function (context) {
-                                        var w = context.chart.width;
-                                        return {
-                                            size: w < 512 ? 18 : 20
-                                        }
-                                    },
-                                    align: 'start',
-                                    anchor: 'start',
-                                    offset: 10,
-                                    borderRadius: 4,
-                                    borderWidth: 1,
-                                    formatter: function (value, context) {
-                                        var i = context.dataIndex;
-                                        var len = context.dataset.data.length - 1;
-                                        if (i == len) {
-                                            return null;
-                                        }
-                                        return value + ' minutes';
-                                    }
-                                }
-                            },
-                            legend: {
-                                display: false
-                            },
-                            tooltips: {
-                                enabled: false
-                            }
-                        }
-                    });
-                    var ctx2 = document.getElementById("canvas2").getContext('2d');
-                    var chart2 = new Chart(ctx2, {
-                        type: "doughnut",
-                        data: {
-                            labels: ["Awards Won ", "Most Awards - Awards Won"],
-                            datasets: [{
-                                label: "Gauge",
-                                data: [winchart, (1 + nomchart - winchart)],
-                                backgroundColor: [
-                                    "rgb(255, 99, 132)",
-                                    "rgb(54, 162, 235)"
-                                ]
-                            }]
-                        },
-                        options: {
-
-                            title: {
-                                display: true,
-                                text: `"${title}" Won ${winchart} Awards and Had Another ${nomchart} Nominations`,
-                                fontSize: 20,
-
-                            },
-                            responsive: true,
-                            legend: {
-                                position: 'top',
-                            },
-
-                            circumference: Math.PI,
-                            rotation: Math.PI,
-                            cutoutPercentage: 80, // precent
-                            plugins: {
-                                datalabels: {
-                                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                                    borderColor: '#ffffff',
-                                    color: function (context) {
-                                        return context.dataset.backgroundColor;
-                                    },
-                                    font: function (context) {
-                                        var w = context.chart.width;
-                                        return {
-                                            size: w < 512 ? 18 : 20
-                                        }
-                                    },
-                                    align: 'start',
-                                    anchor: 'start',
-                                    offset: 10,
-                                    borderRadius: 4,
-                                    borderWidth: 1,
-                                    formatter: function (value, context) {
-                                        var i = context.dataIndex;
-                                        var len = context.dataset.data.length - 1;
-                                        if (i == len) {
-                                            return null;
-                                        }
-                                        return value + ' Awards Won';
-                                    }
-                                }
-                            },
-                            legend: {
-                                display: false
-                            },
-                            tooltips: {
-                                enabled: false
-                            }
-                        }
-                    });
-                    var ctx3 = document.getElementById("canvas3").getContext('2d');
-                    var chart3 = new Chart(ctx3, {
-                        type: "doughnut",
-                        data: {
-                            labels: ["IMDB Votes ", "Most Votes - Votes"],
-                            datasets: [{
-                                label: "Gauge",
-                                data: [votechart, (maxVotes - votechart)],
-                                backgroundColor: [
-                                    "rgb(255, 99, 132)",
-                                    "rgb(54, 162, 235)"
-                                ]
-                            }]
-                        },
-                        options: {
-
-                            title: {
-                                display: true,
-                                text: `"${title}" Votes vs Most Ranked ${genre} Movie with ${maxVotes} Votes`,
-                                fontSize: 20,
-
-                            },
-                            responsive: true,
-                            legend: {
-                                position: 'top',
-                            },
-
-                            circumference: Math.PI,
-                            rotation: Math.PI,
-                            cutoutPercentage: 80, // precent
-                            plugins: {
-                                datalabels: {
-                                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                                    borderColor: '#ffffff',
-                                    color: function (context) {
-                                        return context.dataset.backgroundColor;
-                                    },
-                                    font: function (context) {
-                                        var w = context.chart.width;
-                                        return {
-                                            size: w < 512 ? 18 : 20
-                                        }
-                                    },
-                                    align: 'start',
-                                    anchor: 'start',
-                                    offset: 10,
-                                    borderRadius: 4,
-                                    borderWidth: 1,
-                                    formatter: function (value, context) {
-                                        var i = context.dataIndex;
-                                        var len = context.dataset.data.length - 1;
-                                        if (i == len) {
-                                            return null;
-                                        }
-                                        return value + ' IMDB Votes';
-                                    }
-                                }
-                            },
-                            legend: {
-                                display: false
-                            },
-                            tooltips: {
-                                enabled: false
-                            }
-                        }
-                    });
-                })
+                return urlFilm, genre, maxTime, maxVotes; 
             })
-
-
         })
     })
-}
+};
 
-function init() {
+function init() { 
     const firstGenre = "Action"
     buildQuad(firstGenre)
-}
+};
 
 function optionChanged(newGenre) {
     console.log(newGenre);
     // Fetch new data each time a new sample is selected
     buildQuad(newGenre);
-}
+    // NOTE: Functions for adding selected movie data based on data point clicks on the Quadrant Chart are in the buildQuad() function
+    
+};
 
 // Initialize the dashboard
 init();

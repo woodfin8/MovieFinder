@@ -1,20 +1,26 @@
-// Create chart Runtime
-function buildCharts(film) {
-    // @TODO: Use `d3.json` to fetch the sample data for the plots
-   var url = `/selection/Alien`;
- 
-   d3.json(url).then((data) => {
- 
-        var runtime = data.Runtime;
+// Create chart Nominations vs wins
+function winsNomsGauge(urlFilm) {
+    // All parameters are from the quad.js file.
+    // urlFilm: Flask url to access the json data of the movie selected
 
-        var ctx = document.getElementsByClassName("chartjs-gauge-1");
-        var chart = new Chart(ctx, {
+    // Clear the gauge chart of previous data
+    document.getElementById("canvas3").innerHTML = "";
+
+    // Use `d3.json` to fetch the sample data for the plots
+    d3.json(urlFilm).then(data => {
+
+        var title = data.Title;
+        var winchart = data.Wins;
+        var nomchart = data.Nominations;
+
+        var ctx2 = document.getElementById("canvas3").getContext('2d');
+        var chart2 = new Chart(ctx2, {
             type: "doughnut",
             data: {
-                labels: ["Runtime (mins)", "Longest Runtime (mins)"],
+                labels: ["Awards Won ", "Most Awards - Awards Won"],
                 datasets: [{
                     label: "Gauge",
-                    data: [runtime(), 238],
+                    data: [winchart, (1 + nomchart - winchart)],
                     backgroundColor: [
                         "rgb(255, 99, 132)",
                         "rgb(54, 162, 235)"
@@ -22,15 +28,17 @@ function buildCharts(film) {
                 }]
             },
             options: {
+
+                title: {
+                    display: true,
+                    text: `"${title}" Won ${winchart} Awards Out of ${nomchart} Nominations`,
+                    fontSize: 20,
+
+                },
                 responsive: true,
                 legend: {
                     position: 'top',
                 },
-                // title: {
-                //     display: true,
-                //     text: 'Movie Runtime',
-                //     fontSize: 40 
-                // },
 
                 circumference: Math.PI,
                 rotation: Math.PI,
@@ -59,7 +67,7 @@ function buildCharts(film) {
                             if (i == len) {
                                 return null;
                             }
-                            return value + ' minutes';
+                            return value + ' Awards Won';
                         }
                     }
                 },
@@ -67,53 +75,9 @@ function buildCharts(film) {
                     display: false
                 },
                 tooltips: {
-                    enabled: true
+                    enabled: false
                 }
             }
-        });
+        })
     })
 };
-
-
-// // // DEMO Code: not relevant to example
-// function change_gauge(chart, label, data){
-//   chart.data.datasets.forEach((dataset) => {
-//     if(dataset.label == label){
-//       dataset.data = data;
-//     }  
-//   });
-//   chart.update();
-// }
-
-// var accelerating = false;
-// function accelerate(){
-//   accelerating = false;
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[20,140])
-//   }, 1000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[60,140])
-//   }, 2000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[100,100])
-//   }, 3000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[180,20])
-//   }, 4000);
-
-//   window.setTimeout(function(){
-//       change_gauge(chart,"Gauge",[200,0])
-//   }, 5000);
-// }
-
-// // Start sequence
-// accelerate();
-// window.setInterval(function(){
-//   if(!accelerating){
-//     acelerating = true;
-//     accelerate();
-//   }
-// }, 6000);
