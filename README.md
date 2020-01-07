@@ -61,7 +61,9 @@ A python script was created to query The Movie Database (TMDB) and  the Open Mov
 ### Instructions
 Install the above dependencies. 
 
-If you choose to extract your own data from OMDB and TMDB, you will need to sign up for API keys from The Movie Database (TMDB) at https://www.themoviedb.org/account/signup?language=en-US and the Open Movie Database (OMDB) at http://www.omdbapi.com/apikey.aspx.  If not, only make the config2.py file with the "pwrd" variable and then skip to the next set of bullet points.
+If you choose to extract your own data from OMDB and TMDB, you will need to sign up for API keys from The Movie Database (TMDB) at https://www.themoviedb.org/account/signup?language=en-US and the Open Movie Database (OMDB) at http://www.omdbapi.com/apikey.aspx.
+
+If not, only make the config2.py file with the "pwrd" variable and then skip to the next set of bullet points.
 * If using a new environment, download the libraries from the requirement.txt file.
 * Create a python file named config2.py. 
 * Assign your TMDB key to the variable "tmdb_key", assign your OMDB key to the variable "omdb_key" and assign your PostgreSQL password to the variable "pwrd".
