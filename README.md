@@ -7,7 +7,7 @@
 * [Development Process](#development-process)
 
 ## General info
-![webpage](static/images/webpage.png)
+![webpage](static/images/webpage.PNG)
 This project provides users an opportunity to explore and choose movies based on various parameters. To do this, we munged data from [OMDb](http://www.omdbapi.com/) and [The Movie DB](https://www.themoviedb.org/?language=en-US), and merged the data to a PostreSQL database. We then created an interactive quadrant chart, which displays movie selection based on user-chosen parameters. The user can select a movie, and additional information about the movie is displayed.
 
 ## Technologies
