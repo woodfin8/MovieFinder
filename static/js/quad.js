@@ -8,12 +8,12 @@ function buildQuad(genre) {
 
     //grab data with d3.json then use map function to get IMDB and RT Scores
     d3.json(urlgenre).then(d => {
-        var IMDB = d.map(a => a.IMDB)
-        var RT = d.map(a => a.Rotten_Tomatoes)
-        var Title = d.map(a => a.Title)
-        var Time = d.map(a => a.Runtime)
-        var Votes = d.map(a => a.imdbVotes)
-        var maxTime = (Math.max(...Time))
+        var IMDB = d.map(a => a.IMDB);
+        var RT = d.map(a => a.Rotten_Tomatoes);
+        var Title = d.map(a => a.Title);
+        var Time = d.map(a => a.Runtime);
+        var Votes = d.map(a => a.imdbVotes);
+        var maxTime = (Math.max(...Time));
         var maxVotes = (Math.max(...Votes));
         console.log(`Max Time ${maxTime} \n Max Votes ${maxVotes}`);
 
@@ -131,8 +131,8 @@ function buildQuad(genre) {
                 var urlFilm = `/selection/${title}`;
                 // console.log(urlfilm);
 
-                // // Adds Selected Movie Information to the Bottom of the index Webpage
-                // descriptionBuilder(urlFilm);
+                // Adds Selected Movie Information to the Bottom of the index Webpage
+                descriptionBuilder(urlFilm);
 
                 // Adds a Runtime Gauge
                 runtimeGauge(urlFilm, maxTime, genre);
@@ -150,12 +150,19 @@ function buildQuad(genre) {
 };
 
 function init() { 
-    const firstGenre = "Action"
-    buildQuad(firstGenre)
+    const initGenre = "Action";
+    buildQuad(initGenre);
+
+    const initMovie = `/selection/The Dark Knight`;
+    const initTime = 187;
+    const initMaxVotes = 2141768; 
+    runtimeGauge(initMovie, initTime, initGenre);
+    voteCountGauge(initMovie, initMaxVotes, initGenre);
+    winsNomsGauge(initMovie);
 };
 
 function optionChanged(newGenre) {
-    console.log(newGenre);
+    // console.log(newGenre);
     // Fetch new data each time a new sample is selected
     buildQuad(newGenre);
     // NOTE: Functions for adding selected movie data based on data point clicks on the Quadrant Chart are in the buildQuad() function
