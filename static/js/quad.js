@@ -37,7 +37,7 @@ function buildQuad(genre) {
             tooltip.format("{%title} \n Rotten Tomatoes {%x} \n IMDB {%value} ");
 
             // configure scales
-            chart.yScale().minimum(0);
+            chart.yScale().minimum(2);
             chart.yScale().maximum(10);
             chart.xScale().minimum(0);
             chart.xScale().maximum(100);
@@ -104,8 +104,8 @@ function buildQuad(genre) {
             var labelLBottom1 = chart.quarters().leftBottom().label(1);
             labelLBottom1.useHtml(true);
             labelLBottom1.text("IMDB Rating &#8594;");
-            labelLBottom1.position("left-bottom");
-            labelLBottom1.fontSize(16)
+            labelLBottom1.position("left-top");
+            labelLBottom1.fontSize(20);
             labelLBottom1.offsetX(-20);
             labelLBottom1.offsetY(-110);
             labelLBottom1.rotation(-90);
