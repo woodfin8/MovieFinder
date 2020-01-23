@@ -32,17 +32,6 @@ anychart.onDocumentReady(function () {
 	// create a chart
 	var chart = anychart.quadrant(data);
 
-	// configure scales
-	chart.yScale().minimum(-100);
-	chart.yScale().maximum(100);
-	chart.xScale().minimum(-100);
-	chart.xScale().maximum(100);
-
-	// configure axes
-	chart.xAxis(0, {ticks: true, labels: true});
-	chart.xAxis(1, {ticks: true, labels: true});
-	chart.yAxis(0, {ticks: true, labels: true});
-	chart.yAxis(1, {ticks: true, labels: true});
 
 		// set the chart title
 	chart.title("Quadrant Chart ");
@@ -93,7 +82,15 @@ chart.quarters(
 		},
 	}
 );
-			
+
+// configure scales
+chart.yScale().minimum(-100);
+chart.yScale().maximum(100);
+chart.xScale().minimum(-100);
+chart.xScale().maximum(100);
+
+	
+
 // initiate drawing the chart
 	chart.draw();
 });
